@@ -13,8 +13,7 @@ export async function fetchAyahWords(surahNumber: number, ayahNumber: number, ay
   if (!Number.isInteger(surahNumber) || surahNumber < 1 || surahNumber > 114 || !Number.isInteger(ayahNumber) || ayahNumber < 1 || ayahNumber > ayahCount) throw new QuranDataError("Invalid ayah identity for word-by-word data.", "mismatch");
 
   const response = await fetch(`${WORDS_API}/${surahNumber}/${ayahNumber}`, {
-    headers: { Accept: "application/json", "User-Agent": "IQRA-Quran-Learning/1.0" },
-    next: { revalidate: 604_800 },
+    headers: { Accept: "application/json" },
   });
   if (!response.ok) throw new QuranDataError(`Word-by-word provider returned ${response.status}.`, "network");
 

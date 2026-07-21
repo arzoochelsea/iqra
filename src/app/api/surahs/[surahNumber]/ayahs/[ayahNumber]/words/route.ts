@@ -2,9 +2,7 @@ import { getSurahMetadata } from "@/data/surah-metadata";
 import { QuranDataError } from "@/lib/quran/errors";
 import { fetchAyahWords } from "@/lib/quran/words";
 
-export const runtime = "nodejs";
-export const preferredRegion = "fra1";
-export const maxDuration = 20;
+export const runtime = "edge";
 
 type Context = { params: Promise<{ surahNumber: string; ayahNumber: string }> };
 
