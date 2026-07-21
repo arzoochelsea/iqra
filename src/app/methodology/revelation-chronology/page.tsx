@@ -1,0 +1,16 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = { title: "Revelation Chronology Methodology", description: "How IQRA presents Meccan and Medinan classification, traditional revelation order, and scholarly uncertainty." };
+
+export default function RevelationMethodologyPage() {
+  return <article className="shell narrow section-pad"><header className="page-header"><p className="eyebrow">Methodology</p><h1 className="page-title">Revelation chronology</h1><p>This page explains the distinctions and limitations behind IQRA’s Revelation Journey. It presents a named traditional classification system without treating chronology as universally settled.</p></header><div className="prose-page methodology-prose">
+    <section><h2>What Meccan and Medinan mean</h2><p>“Meccan” generally refers to revelation before the Hijrah, while “Medinan” generally refers to revelation after the Hijrah. This classification does not necessarily mean that every verse was physically revealed within that city.</p></section>
+    <section><h2>Why the Hijrah is the boundary</h2><p>The Hijrah from Makkah to Madinah in 622 CE marks the central transition used in the traditional classification. For that reason, pre-Hijrah and post-Hijrah are more precise labels than assuming a physical city for every revelation.</p></section>
+    <section><h2>Revelation order and Mushaf order</h2><p>Mushaf order is the canonical arrangement in which the 114 Surahs are read. Revelation order is a chronology transmitted or reconstructed by a particular source. Tanzil notes that its order is based on the opening ayahs of each Surah, not the completion of the entire Surah.</p></section>
+    <section><h2>Why a Surah can cross periods</h2><p>A Surah may contain passages associated with more than one setting or period. IQRA displays Tanzil’s documented verse-level notes separately so a primary classification never hides those qualifications.</p></section>
+    <section><h2>Why chronologies differ</h2><p>Traditional reports and academic reconstructions use different evidence and methods. Even established chronology lists can place individual Surahs differently. IQRA does not combine traditional and academic numbers into an unexplained sequence.</p></section>
+    <section><h2>The system IQRA follows</h2><p>The current experience follows <a className="text-link focus-ring" href="https://tanzil.net/docs/Revelation_Order" target="_blank" rel="noreferrer">Tanzil’s traditional revelation order ↗</a>, which Tanzil attributes to material presented in <cite>The History of the Quran</cite> by Abu Abd Allah al-Zanjani. General historical anchors—around 610 CE, the Hijrah in 622 CE, and completion around 632 CE—provide orientation, not exact Surah dates.</p></section>
+    <section><h2>How uncertainty is labelled</h2><p>Traditional positions are labelled “traditional,” broad periods are described as general patterns, and source disagreements are stated directly. IQRA omits exact early, middle, or late Meccan placements when the selected source does not provide them. Documented exceptions remain attributed to their source rather than presented as uncontested fact.</p></section>
+  </div><p className="mt-10"><Link className="button-primary focus-ring" href="/revelation-journey">Explore all 114 Surahs</Link></p></article>;
+}

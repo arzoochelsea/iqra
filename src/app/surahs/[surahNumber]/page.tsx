@@ -9,6 +9,9 @@ import { getSurahMetadata } from "@/data/surah-metadata";
 import { SourceAttributionList } from "@/components/quran/source-attribution";
 import { StandardSurahReader } from "@/components/quran/standard-surah-reader";
 import { SurahHeader } from "@/components/quran/surah-header";
+import { attachWordsToAyahs, fetchSurahWords } from "@/lib/quran/words";
+import { RevelationJourney } from "@/components/revelation/revelation-journey";
+import { getRevelationMetadata } from "@/data/revelation-metadata";
 
 type Props = { params: Promise<{ surahNumber: string }> };
 
@@ -25,16 +28,25 @@ export default async function SurahPage({ params }: Props) {
   const metadata = getSurahMetadata(number);
   if (!metadata) notFound();
   const surah = getPreparedSurah(number);
+  const revelation = getRevelationMetadata(number);
+  if (!revelation) notFound();
   if (metadata.contentStatus !== "fully-prepared" || !surah) return <article><SurahHeader metadata={metadata} /><StandardSurahReader metadata={metadata} /></article>;
+  let preparedAyahs = surah.ayahs;
+  try {
+    preparedAyahs = attachWordsToAyahs(surah.ayahs, await fetchSurahWords(metadata.number, metadata.ayahCount));
+  } catch {
+    preparedAyahs = attachWordsToAyahs(surah.ayahs, new Map());
+  }
 
   return <article>
     <SurahHeader metadata={surah.metadata} eyebrow="The Sincerity of Faith" />
+    <RevelationJourney metadata={revelation} />
     <div className="shell narrow pb-20">
       <ContentSection title={`Listen to ${surah.metadata.nameEnglish}`} eyebrow="Full-Surah audio" tone="card"><AudioPlayer src={surah.audio.audioUrl} label={`Surah ${surah.metadata.nameEnglish}`} /><p className="mt-5 text-xs text-muted">Streamed from {surah.audio.sourceName} · Recitation by {surah.audio.reciterName}</p></ContentSection>
       <ContentSection title="About this Surah">{surah.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</ContentSection>
       <ContentSection title="Revelation context"><p>{surah.revelationContext}</p></ContentSection>
       <ContentSection title="Main themes"><ul>{surah.themes.map((theme) => <li key={theme}>{theme}</li>)}</ul></ContentSection>
-      <ContentSection title="Ayah reader" eyebrow="Qur’an"><AyahReader ayahs={surah.ayahs} /><p className="mt-4 text-xs text-muted">Translation: Saheeh International · Transliteration: Al Quran Cloud English Transliteration</p></ContentSection>
+      <ContentSection title="Ayah reader" eyebrow="Qur’an"><AyahReader ayahs={preparedAyahs} /><p className="mt-4 text-xs text-muted">Translation: Saheeh International · Full-ayah transliteration: Al Quran Cloud · Word-by-word: islamic.app</p></ContentSection>
       <ContentSection title="Trusted tafsir" eyebrow="Sourced commentary"><div className="tafsir-panel"><details open><summary className="focus-ring"><span>{surah.tafsir.title}</span><span aria-hidden="true">+</span></summary><div><p><strong>Verification status:</strong> {surah.tafsir.verificationStatus.replaceAll("-", " ")}</p><p>{surah.tafsir.summary}</p><p>{surah.tafsir.detailedExplanation}</p><a className="text-link focus-ring" href={surah.tafsir.sourceReference} target="_blank" rel="noreferrer">Read {surah.tafsir.sourceName} ↗</a></div></details></div></ContentSection>
       <ContentSection title="Reflection" eyebrow="Editorial reflection" tone="reflection"><p><strong>Practical takeaway:</strong> {surah.reflection.practicalTakeaway}</p><ol>{surah.reflection.reflectionQuestions.map((question) => <li key={question}>{question}</li>)}</ol><p className="reflection-disclaimer">{surah.reflection.disclaimer}</p></ContentSection>
       <ContentSection title="Sources"><SourceAttributionList sources={surah.sources} /></ContentSection>

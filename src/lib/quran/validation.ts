@@ -1,4 +1,4 @@
-import type { Ayah, PreparedSurah, SurahMetadata } from "@/types/quran";
+import type { Ayah, PreparedSurah, QuranWord, SurahMetadata } from "@/types/quran";
 
 export function validateSurahMetadata(items: readonly SurahMetadata[]) {
   if (items.length !== 114) throw new Error(`Expected 114 Surahs; received ${items.length}.`);
@@ -18,3 +18,13 @@ export function validateAyahs(ayahs: readonly Ayah[], metadata: SurahMetadata) {
   return ayahs;
 }
 export function validatePreparedSurah(surah: PreparedSurah) { validateAyahs(surah.ayahs, surah.metadata); if (surah.metadata.contentStatus !== "fully-prepared") throw new Error("Prepared Surah must have fully-prepared status."); return surah; }
+export function validateQuranWords(words: readonly QuranWord[], surahNumber: number, ayahNumber: number) {
+  if (words.length === 0) throw new Error(`No word data returned for ${surahNumber}:${ayahNumber}.`);
+  const positions = new Set<number>();
+  words.forEach((word, index) => {
+    if (!Number.isInteger(word.position) || word.position !== index + 1 || positions.has(word.position)) throw new Error(`Invalid word position in ${surahNumber}:${ayahNumber}.`);
+    if (!word.arabic.trim() || !word.meaningEnglish.trim() || !word.sourceName.trim()) throw new Error(`Incomplete word data in ${surahNumber}:${ayahNumber}.`);
+    positions.add(word.position);
+  });
+  return words;
+}

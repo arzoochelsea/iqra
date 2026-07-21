@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links = [{ href: "/", label: "Home" }, { href: "/surahs", label: "Surahs" }, { href: "/about", label: "About" }];
+const links = [{ href: "/", label: "Home" }, { href: "/surahs", label: "Surahs" }, { href: "/revelation-journey", label: "Journey" }, { href: "/about", label: "About" }];
 
 export function SiteHeader() {
   return <header className="border-b border-ink/10 bg-cream/95">
