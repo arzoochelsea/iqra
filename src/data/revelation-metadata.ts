@@ -56,7 +56,7 @@ export const REVELATION_METADATA: readonly SurahRevelationMetadata[] = SURAH_MET
     phase: classification === "medinan" ? "medinan" : undefined,
     confidence: "traditional",
     exceptions,
-    summary: `Surah ${surah.nameEnglish} is traditionally classified as ${city} and is placed at position ${traditionalPosition} in the traditional revelation order.`,
+    summary: `Surah ${surah.nameEnglish} is traditionally classified as ${city} and belongs to the period ${classification === "meccan" ? "before" : "after"} the Hijrah.`,
     sourceName: "Tanzil Revelation Order",
     sourceUrl: REVELATION_SOURCE_URL,
     sourceNote: "Tanzil’s traditional sequence is based on the revelation of a Surah’s opening ayahs, not the completion of the whole Surah. Other chronology systems may differ.",
