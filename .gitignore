@@ -22,7 +22,16 @@
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
+*.key
+*.pfx
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
 
 # debug
 npm-debug.log*
@@ -31,10 +40,17 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
+.env
+.env.local
+.env.*.local
 .env*
 
 # vercel
-.vercel
+.vercel/
+
+# editor settings
+.idea/
+.vscode/
 
 # typescript
 *.tsbuildinfo

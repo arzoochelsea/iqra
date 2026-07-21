@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+
+# IQRA
+
+## Where Every Journey Begins
+
+> “Read in the name of your Lord who created.”<br>
+> — Qur’an 96:1
+
+IQRA is a calm and accessible Qur’an learning experience designed to help people read, listen to, understand, and reflect upon the Qur’an through authentic recitation, clearly attributed translations, and carefully reviewed learning material.
+
+</div>
+
+## Why IQRA?
+
+IQRA (اقْرَأْ) means “Read” or “Recite.” It was the first word revealed by Allah to Prophet Muhammad ﷺ through Angel Jibril, marking the beginning of Qur’anic revelation. The platform takes inspiration from this invitation to knowledge, reflection, and faith.
+
+## Features
+
+- Browse all 114 Surahs
+- Search by number, Arabic name, English name, or meaning
+- Read Arabic Qur’anic text
+- Read an attributed English translation
+- View transliteration where verified
+- Listen to full-Surah recitation
+- Listen to individual ayahs
+- View clearly attributed content sources
+- Use responsive mobile and desktop layouts
+- Read tafsir separately from editorial reflection
+
+## Screenshots
+
+Screenshots will be added as the interface continues to mature. Planned paths:
+
+- `docs/screenshots/home.png`
+- `docs/screenshots/surah-reader.png`
+- `docs/screenshots/surah-list.png`
+
+No placeholder images are embedded in this README.
+
+## Current Content Status
+
+Qur’an reading content is available across all 114 Surah routes through a validated, server-side data client. Surah Al-Ikhlas is the richer reference study page, with sourced background, themes, tafsir summary, reflection prompts, and related Surahs.
+
+Detailed tafsir, historical context, themes, and reflections for additional Surahs are being reviewed gradually. IQRA prioritizes accuracy and clear attribution over publishing unverified learning material.
+
+## Technology
+
+- [Next.js](https://nextjs.org/) with the App Router
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20 or newer
+- npm
+
+### Installation
 
 ```bash
+git clone https://github.com/arzoochelsea/iqra.git
+cd iqra
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+npm start
+```
 
-## Learn More
+## Routes
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Purpose |
+| --- | --- |
+| `/` | Homepage and Surah search preview |
+| `/surahs` | Searchable index of all 114 Surahs |
+| `/surahs/[surahNumber]` | Qur’an reader and available study material |
+| `/about` | Project purpose and content methodology |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sources and Content Methodology
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Qur’anic Arabic and metadata:** [Al Quran Cloud](https://alquran.cloud/api), using the Uthmani edition for prepared content
+- **English translation:** Saheeh International, delivered through Al Quran Cloud
+- **Transliteration:** Al Quran Cloud English Transliteration edition
+- **Recitation:** Mishary Rashid Alafasy, streamed from the Islamic Network CDN
+- **Tafsir reference for Al-Ikhlas:** Tafsir Ibn Kathir (Abridged), hosted by Quran.com
 
-## Deploy on Vercel
+Arabic, translation, transliteration, tafsir, and editorial reflection are presented as distinct content layers. Provider responses are validated before display, and the application does not substitute content from a different Surah when data is unavailable.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content Integrity
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Qur’anic Arabic is not generated, corrected, or normalized by the application. Translation and recitation rights remain with their respective rights-holders and are displayed with attribution. Tafsir summaries and historical material require careful source review; editorial reflection is not a substitute for qualified scholarly guidance.
+
+## Contributing
+
+Contributions that improve accessibility, reliability, or source transparency are welcome. Changes to Qur’anic text, translations, transliteration, historical claims, or tafsir should include a clear and reputable source.
+
+Before submitting changes, run:
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```

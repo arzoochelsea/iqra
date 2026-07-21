@@ -1,65 +1,47 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { SurahList } from "@/components/surah-list";
+
+export const metadata: Metadata = {
+  title: { absolute: "IQRA | Where Every Journey Begins" },
+  description: "Read, listen to, understand, and reflect on the Qur’an through a calm and accessible learning experience.",
+};
+
+const benefits = [
+  ["Listen", "Stream clear recitation from one trusted reciter."],
+  ["Read", "See Arabic, transliteration, and translation together."],
+  ["Understand", "Learn context and themes with clear attribution."],
+  ["Reflect", "Pause with practical prompts for thoughtful study."],
+];
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+  return <>
+    <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Where Every Journey Begins</p><h1 className="display-title">IQRA</h1><blockquote className="verse"><p>“Read in the name of your Lord who created.”</p><cite>— Qur’an 96:1</cite></blockquote><p className="max-w-2xl text-lg leading-8 text-muted">Listen, understand, and learn the Qur’an through authentic recitation, clear transliteration, trusted translation, and meaningful tafsir.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/surahs" className="button-primary focus-ring">Explore Surahs</Link><Link href="/surahs/112" className="button-secondary focus-ring">Start with Al-Ikhlas</Link></div></div><div className="hero-mark" aria-hidden="true"><span>اقْرَأْ</span><small>Begin with reading</small></div></div></section>
+    <section
+      className="why-iqra"
+      aria-labelledby="why-iqra-title"
+      data-home-section="why-iqra"
+    >
+      <div className="shell why-iqra-grid">
+        <div className="why-iqra-name" aria-label="IQRA, written in Arabic and English">
+          <span dir="rtl" lang="ar" className="arabic">اقْرَأْ</span>
+          <span>IQRA</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div>
+          <p className="eyebrow">The meaning behind the name</p>
+          <h2 id="why-iqra-title" className="section-title">Why IQRA?</h2>
+          <div className="why-iqra-copy">
+            <p>“IQRA” (اقرأ) was the first word revealed by Allah to Prophet Muhammad ﷺ.</p>
+            <blockquote>
+              <p>“Read in the name of your Lord who created.”</p>
+              <cite>— Qur’an 96:1</cite>
+            </blockquote>
+            <p>IQRA means “Read” or “Recite.” It symbolizes the beginning of the Qur’anic revelation and the pursuit of knowledge with attentiveness, humility, and purpose.</p>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </div>
+    </section>
+    <section className="shell section-pad"><div className="section-heading"><div><p className="eyebrow">Explore</p><h2 className="section-title">Find a Surah</h2></div><Link href="/surahs" className="text-link focus-ring">View all 114</Link></div><SurahList preview /></section>
+    <section className="border-y border-ink/10 bg-paper"><div className="shell section-pad"><p className="eyebrow">A simple companion</p><h2 className="section-title">How IQRA helps</h2><div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">{benefits.map(([title, copy], index) => <article className="bg-cream p-6" key={title}><span className="text-xs font-bold text-gold">0{index + 1}</span><h3 className="mt-5 font-serif text-2xl text-green">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{copy}</p></article>)}</div></div></section>
+  </>;
 }
