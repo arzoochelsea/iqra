@@ -26,6 +26,9 @@ IQRA (اقْرَأْ) means “Read” or “Recite.” It was the first word re
 - Listen to full-Surah recitation
 - Listen to individual ayahs
 - Explore a sourced traditional revelation journey for all 114 Surahs
+- Create personal Learning Lists in My Qur’an Journey
+- Track simple not-started, in-progress, and completed status locally
+- Export or import a validated journey backup
 - View clearly attributed content sources
 - Use responsive mobile and desktop layouts
 - Read tafsir separately from editorial reflection
@@ -37,6 +40,7 @@ Screenshots will be added as the interface continues to mature. Planned paths:
 - `docs/screenshots/home.png`
 - `docs/screenshots/surah-reader.png`
 - `docs/screenshots/surah-list.png`
+- `docs/screenshots/my-journey.png`
 
 No placeholder images are embedded in this README.
 
@@ -89,6 +93,8 @@ npm start
 | `/surahs/[surahNumber]` | Qur’an reader and available study material |
 | `/revelation-journey` | Searchable timeline of all 114 Surahs |
 | `/methodology/revelation-chronology` | Sources, terminology, and chronology limitations |
+| `/my-journey` | Local Learning Lists, progress, and journey backups |
+| `/privacy` | Local-storage privacy and backup limitations |
 | `/about` | Project purpose and content methodology |
 
 ## Sources and Content Methodology
@@ -106,6 +112,16 @@ Arabic, translation, transliteration, tafsir, and editorial reflection are prese
 ## Content Integrity
 
 Qur’anic Arabic is not generated, corrected, or normalized by the application. Translation and recitation rights remain with their respective rights-holders and are displayed with attribution. Tafsir summaries and historical material require careful source review; editorial reflection is not a substitute for qualified scholarly guidance.
+
+## Personal Journey and Privacy
+
+My Qur’an Journey stores Learning Lists and progress only in the current browser under the versioned key `iqra-quran-journey-v1`. It stores identifiers and list settings—not Qur’an text, audio, or full API responses. Clearing browser data, private browsing, or moving to another device may remove local progress.
+
+Validated JSON export and import provide a manual backup path. Optional account synchronization may be considered in the future through the replaceable journey repository interface, but no account or cloud synchronization is currently implemented.
+
+## Creator
+
+IQRA was created and developed by **Arzoo** with the aim of making Qur’an reading, listening, understanding, and structured learning more accessible.
 
 ## Contributing
 

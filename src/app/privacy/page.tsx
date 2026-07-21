@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Privacy", description: "How IQRA handles local Qur’an learning lists and progress." };
+
+export default function PrivacyPage() {
+  return <article className="shell narrow section-pad"><header className="page-header"><p className="eyebrow">Privacy</p><h1 className="page-title">Your journey stays local</h1><p>IQRA’s current personal-learning tools work without an account.</p></header><div className="prose-page"><section><h2>Learning lists and progress</h2><p>Your learning lists and progress are stored only in this browser. They are not uploaded to IQRA.</p><p>Clearing browser data, using private browsing, or changing devices may remove your saved progress.</p></section><section><h2>What is stored</h2><p>IQRA stores only list names, optional descriptions, Surah and ayah identifiers, ordering, status, and timestamps. Qur’an text, translations, audio files, and full provider responses are not copied into journey storage.</p></section><section><h2>Backups</h2><p>You can export a validated JSON backup and import it later. Backup files should be kept somewhere you trust. IQRA cannot recover a lost local journey.</p></section><section><h2>Analytics</h2><p>IQRA does not use analytics to collect the contents of personal Learning Lists. Optional account synchronization may be considered in the future, but it is not implemented in this version.</p></section></div></article>;
+}

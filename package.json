@@ -1,6 +1,7 @@
 {
   "name": "iqra",
   "version": "0.1.0",
+  "author": "Arzoo",
   "private": true,
   "scripts": {
     "dev": "next dev",

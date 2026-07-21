@@ -1,4 +1,5 @@
 import type { SurahMetadata } from "@/types/quran";
+import { AddToJourney } from "@/components/journey/add-to-journey";
 
 export function SurahHeader({ metadata, eyebrow }: { metadata: SurahMetadata; eyebrow?: string }) {
   return <header className="surah-hero"><div className="shell text-center">
@@ -12,5 +13,6 @@ export function SurahHeader({ metadata, eyebrow }: { metadata: SurahMetadata; ey
       <div><dt className="sr-only">Revelation place</dt><dd>{metadata.revelationType === "Meccan" ? "Makkan" : "Madinan"}</dd></div>
       <div><dt className="sr-only">Ayah count</dt><dd>{metadata.ayahCount} ayahs</dd></div>
     </dl>
+    <div className="surah-journey-action"><AddToJourney item={{ type: "surah", surahNumber: metadata.number, title: `Surah ${metadata.nameEnglish}`, arabicTitle: metadata.nameArabic }} /></div>
   </div></header>;
 }
