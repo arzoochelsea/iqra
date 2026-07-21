@@ -5,7 +5,6 @@ import { ContentSection } from "@/components/section";
 import { getSurahAudio } from "@/lib/quran/audio";
 import { fetchRemoteSurah, QuranDataError } from "@/lib/quran/client";
 import { QURAN_SOURCES } from "@/lib/quran/sources";
-import { attachWordsToAyahs, fetchSurahWords } from "@/lib/quran/words";
 import type { SurahMetadata } from "@/types/quran";
 import { SourceAttributionList } from "./source-attribution";
 import { RevelationJourney } from "@/components/revelation/revelation-journey";
@@ -25,11 +24,6 @@ export async function StandardSurahReader({ metadata }: { metadata: SurahMetadat
   if (!result) {
     const message = requestError instanceof QuranDataError && requestError.code === "mismatch" ? "The provider response did not match this Surah, so no Qur’an content has been displayed." : "Qur’an text, translation, and ayah audio could not be loaded safely. Please try again when the provider is available.";
     return <>{revelation && <RevelationJourney metadata={revelation} />}<div className="shell narrow section-pad"><ErrorCard title="Qur’an content unavailable" message={message} /><div className="mt-10"><SourceAttributionList sources={readerSources} /></div></div></>;
-  }
-  try {
-    result = attachWordsToAyahs(result, await fetchSurahWords(metadata.number, metadata.ayahCount));
-  } catch {
-    result = attachWordsToAyahs(result, new Map());
   }
   const audio = getSurahAudio(metadata.number);
   return <>{revelation && <RevelationJourney metadata={revelation} />}<div className="shell narrow pb-20">

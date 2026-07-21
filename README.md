@@ -46,7 +46,7 @@ No placeholder images are embedded in this README.
 
 ## Current Content Status
 
-Qur’an reading and word-by-word learning content is available across all 114 Surah routes through validated, server-side data clients. Each Surah also includes a traditional revelation journey with clearly labelled chronology and documented source notes. Surah Al-Ikhlas is the richer reference study page, with sourced background, themes, tafsir summary, reflection prompts, and related Surahs.
+Qur’an reading and word-by-word learning content is available across all 114 Surah routes through validated data clients. Word meanings load only when an ayah’s compact control is opened, keeping the main reader responsive. Each Surah also includes a traditional revelation journey with clearly labelled chronology and documented source notes. Surah Al-Ikhlas is the richer reference study page, with sourced background, themes, tafsir summary, reflection prompts, and related Surahs.
 
 Detailed tafsir, historical context, themes, and reflections for additional Surahs are being reviewed gradually. IQRA prioritizes accuracy and clear attribution over publishing unverified learning material.
 
@@ -102,7 +102,7 @@ npm start
 - **Qur’anic Arabic and metadata:** [Al Quran Cloud](https://alquran.cloud/api), using the Uthmani edition for prepared content
 - **English translation:** Saheeh International, delivered through Al Quran Cloud
 - **Transliteration:** Al Quran Cloud English Transliteration edition
-- **Word-by-word learning:** islamic.app, sourced from Quran.com API v4 data
+- **Word-by-word learning:** islamic.app Word-by-word Quran, provided by islamic.app from Quran.com API v4 data; documented coverage is all 114 Surahs, 6,236 ayahs, and 77,429 words. The provider attributes Quran.com / Tarteel data under AGPL-3.0. Last reviewed: 21 July 2026.
 - **Recitation:** Mishary Rashid Alafasy, streamed from the Islamic Network CDN
 - **Traditional revelation order:** [Tanzil Revelation Order](https://tanzil.net/docs/Revelation_Order)
 - **Tafsir reference for Al-Ikhlas:** Tafsir Ibn Kathir (Abridged), hosted by Quran.com
