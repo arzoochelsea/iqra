@@ -1,0 +1,30 @@
+import "server-only";
+import type { QuranWord } from "@/types/quran";
+import { QuranDataError } from "./errors";
+import { validateQuranWords } from "./validation";
+
+const WORDS_API = "https://api.islamic.app/v1/words";
+const WORDS_SOURCE = "islamic.app Word-by-word Quran";
+
+type RemoteWord = { position?: unknown; text_uthmani?: unknown; translation?: unknown; transliteration?: unknown };
+type RemoteAyah = { code?: unknown; data?: { surah_number?: unknown; ayah_number?: unknown; verse_key?: unknown; word_count?: unknown; words?: unknown } };
+
+export async function fetchAyahWords(surahNumber: number, ayahNumber: number, ayahCount: number) {
+  if (!Number.isInteger(surahNumber) || surahNumber < 1 || surahNumber > 114 || !Number.isInteger(ayahNumber) || ayahNumber < 1 || ayahNumber > ayahCount) throw new QuranDataError("Invalid ayah identity for word-by-word data.", "mismatch");
+
+  const response = await fetch(`${WORDS_API}/${surahNumber}/${ayahNumber}`, {
+    headers: { Accept: "application/json", "User-Agent": "IQRA-Quran-Learning/1.0" },
+    next: { revalidate: 604_800 },
+  });
+  if (!response.ok) throw new QuranDataError(`Word-by-word provider returned ${response.status}.`, "network");
+
+  const payload = await response.json() as RemoteAyah;
+  const data = payload?.data;
+  if (payload?.code !== 200 || !data || data.surah_number !== surahNumber || data.ayah_number !== ayahNumber || data.verse_key !== `${surahNumber}:${ayahNumber}` || !Array.isArray(data.words) || data.word_count !== data.words.length) throw new QuranDataError("Word-by-word response does not match the requested ayah.", "mismatch");
+
+  const words = (data.words as RemoteWord[]).map((word): QuranWord => {
+    if (typeof word.position !== "number" || typeof word.text_uthmani !== "string" || typeof word.translation !== "string") throw new QuranDataError("Required word-by-word fields are missing.", "invalid-response");
+    return { position: word.position, arabic: word.text_uthmani, meaningEnglish: word.translation, transliteration: typeof word.transliteration === "string" && word.transliteration.trim() ? word.transliteration : undefined, sourceName: WORDS_SOURCE };
+  });
+  return validateQuranWords(words, surahNumber, ayahNumber);
+}
