@@ -3,26 +3,31 @@
 import { useId, useState } from "react";
 import type { QuranWord } from "@/types/quran";
 
-type WordResponse = { surahNumber: number; ayahNumber: number; words: QuranWord[] };
+type RemoteWord = { position?: unknown; text_uthmani?: unknown; translation?: unknown; transliteration?: unknown };
+type WordResponse = { code?: unknown; data?: { surah_number?: unknown; ayah_number?: unknown; verse_key?: unknown; word_count?: unknown; words?: unknown } };
 type LoadState = { status: "idle" | "loading" | "ready" | "error"; words?: readonly QuranWord[] };
 const wordCache = new Map<string, Promise<readonly QuranWord[]>>();
+const WORDS_API = "https://api.islamic.app/v1/words";
+const WORDS_SOURCE = "islamic.app Word-by-word Quran";
 
 function validateResponse(payload: unknown, surahNumber: number, ayahNumber: number) {
-  const response = payload as Partial<WordResponse>;
-  if (response.surahNumber !== surahNumber || response.ayahNumber !== ayahNumber || !Array.isArray(response.words) || response.words.length === 0) throw new Error("Mismatched word response.");
+  const response = payload as WordResponse;
+  const data = response?.data;
+  if (response?.code !== 200 || !data || data.surah_number !== surahNumber || data.ayah_number !== ayahNumber || data.verse_key !== `${surahNumber}:${ayahNumber}` || !Array.isArray(data.words) || data.words.length === 0 || data.word_count !== data.words.length) throw new Error("Mismatched word response.");
   const positions = new Set<number>();
-  response.words.forEach((word, index) => {
-    if (!word || word.position !== index + 1 || positions.has(word.position) || typeof word.arabic !== "string" || !word.arabic.trim() || typeof word.meaningEnglish !== "string" || !word.meaningEnglish.trim()) throw new Error("Invalid word response.");
+  const words = (data.words as RemoteWord[]).map((word, index): QuranWord => {
+    if (!word || word.position !== index + 1 || positions.has(word.position) || typeof word.text_uthmani !== "string" || !word.text_uthmani.trim() || typeof word.translation !== "string" || !word.translation.trim()) throw new Error("Invalid word response.");
     positions.add(word.position);
+    return { position: word.position, arabic: word.text_uthmani, meaningEnglish: word.translation, transliteration: typeof word.transliteration === "string" && word.transliteration.trim() ? word.transliteration : undefined, sourceName: WORDS_SOURCE };
   });
-  return response.words;
+  return words;
 }
 
 function loadWords(surahNumber: number, ayahNumber: number) {
   const key = `${surahNumber}:${ayahNumber}`;
   const existing = wordCache.get(key);
   if (existing) return existing;
-  const request = fetch(`/api/surahs/${surahNumber}/ayahs/${ayahNumber}/words`)
+  const request = fetch(`${WORDS_API}/${surahNumber}/${ayahNumber}`)
     .then(async (response) => {
       if (!response.ok) throw new Error("Word request failed.");
       return validateResponse(await response.json(), surahNumber, ayahNumber);
