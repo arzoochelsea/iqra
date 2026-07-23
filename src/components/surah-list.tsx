@@ -10,13 +10,11 @@ type SurahFilter = "all" | "meccan" | "medinan" | "short";
 export function SurahList({
   searchId = "surah-search",
   showFilters = false,
-  initialSearch = "",
 }: {
   searchId?: string;
   showFilters?: boolean;
-  initialSearch?: string;
 }) {
-  const [query, setQuery] = useState(initialSearch);
+  const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<SurahFilter>("all");
 
   const filtered = useMemo(() => {
