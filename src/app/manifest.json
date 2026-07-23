@@ -1,0 +1,35 @@
+{
+  "id": "/",
+  "name": "IQRA — Qur'an Reading & Learning",
+  "short_name": "IQRA",
+  "description": "Read, listen to, and understand the Qur'an through clearly attributed sources.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f8f4e9",
+  "theme_color": "#153f35",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "books", "lifestyle"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explore Surahs",
+      "short_name": "Surahs",
+      "url": "/surahs",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Journey",
+      "short_name": "Journey",
+      "url": "/my-journey",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
