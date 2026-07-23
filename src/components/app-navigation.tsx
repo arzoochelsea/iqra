@@ -7,9 +7,9 @@ import { AppIcon, type AppIconName } from "@/components/app-icon";
 const navigation: { href: string; label: string; icon: AppIconName; aliases?: string[] }[] = [
   { href: "/", label: "Home", icon: "home" },
   { href: "/surahs", label: "Surahs", icon: "book" },
-  { href: "/search", label: "Search", icon: "search" },
+  { href: "/duas", label: "Duas", icon: "search", aliases: ["/search"] },
   { href: "/saved", label: "Saved", icon: "bookmark", aliases: ["/my-journey"] },
-  { href: "/about", label: "More", icon: "more", aliases: ["/why-iqra", "/privacy", "/methodology"] },
+  { href: "/about", label: "More", icon: "more", aliases: ["/privacy", "/methodology"] },
 ];
 
 function isActive(pathname: string, href: string, aliases: string[] = []) {
@@ -25,7 +25,6 @@ export function DesktopNavigation() {
         {navigation.slice(0, 4).map((item) => <li key={item.href}>
           <Link href={item.href} className="nav-link focus-ring" aria-current={isActive(pathname, item.href, item.aliases) ? "page" : undefined}>{item.label}</Link>
         </li>)}
-        <li><Link href="/why-iqra" className="nav-link focus-ring" aria-current={pathname === "/why-iqra" ? "page" : undefined}>Why IQRA?</Link></li>
       </ul>
     </nav>
   );

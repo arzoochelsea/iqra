@@ -25,22 +25,24 @@ export default function Home() {
         </div>
         <div className="app-home-actions">
           <Link href="/surahs/112" className="button-primary focus-ring">Begin Reading</Link>
-          <Link href="/why-iqra" className="app-text-button focus-ring">Why IQRA? <span aria-hidden="true">→</span></Link>
+          <Link href="#why-iqra" className="app-text-button focus-ring">The story of Hira <span aria-hidden="true">↓</span></Link>
           <InstallIqra />
         </div>
       </section>
 
-      <section className="home-why-iqra" aria-labelledby="home-why-title">
+      <section id="why-iqra" className="home-why-iqra" aria-labelledby="home-why-title">
         <p className="home-why-label">The first divine call</p>
         <h2 id="home-why-title">It began with one word: <strong>IQRA</strong></h2>
-        <p>The first word Allah revealed was a call to read—to awaken the mind, seek knowledge, and draw nearer to the Creator.</p>
+        <p>Before revelation, Prophet Muhammad ﷺ was drawn to the quiet of the Cave of Hira. Above Makkah, away from its noise and idols, he spent nights in worship and reflection, seeking truth and turning his heart towards Allah.</p>
         <div className="home-verse-card">
           <span aria-hidden="true">“</span>
           <p>Read in the name of your Lord who created.</p>
           <small>Qur’an 96:1</small>
         </div>
-        <p>That same call reaches us today: read with curiosity, learn with humility, and reflect with sincerity.</p>
-        <Link href="/why-iqra" className="app-text-button focus-ring">Discover why IQRA matters <span aria-hidden="true">→</span></Link>
+        <p>There, Jibril came with the command “IQRA.” The Prophet ﷺ returned trembling, and Khadijah held him with faith and tenderness. She reminded him that Allah would never disgrace one who spoke truth, cared for family, helped those in need, welcomed guests, and stood beside people in hardship.</p>
+        <p>Hira teaches us that closeness to Allah can begin in stillness: with a searching heart, an honest question, and the humility to receive guidance. IQRA is not only a command to read words—it is an invitation to recognise Allah, live what we learn, and let knowledge make us more merciful.</p>
+        <p className="home-hira-closing">That call still reaches us today. Read with sincerity. Learn with humility. Return to Allah with hope.</p>
+        <small className="home-hira-source">Based on Qur’an 96:1–5 and Sahih al-Bukhari 3.</small>
       </section>
     </div>
   );

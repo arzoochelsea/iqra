@@ -30,6 +30,12 @@
       "short_name": "Journey",
       "url": "/saved",
       "icons": [{ "src": "/icons/iqra-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Qur'anic Duas",
+      "short_name": "Duas",
+      "url": "/duas",
+      "icons": [{ "src": "/icons/iqra-icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
