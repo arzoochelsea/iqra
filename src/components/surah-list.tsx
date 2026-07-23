@@ -2,21 +2,45 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { AppIcon } from "@/components/app-icon";
 import { SURAH_METADATA } from "@/data/surah-metadata";
 
-export function SurahList({ preview = false }: { preview?: boolean }) {
+type SurahFilter = "all" | "meccan" | "medinan" | "short";
+
+export function SurahList({
+  searchId = "surah-search",
+  showFilters = false,
+}: {
+  searchId?: string;
+  showFilters?: boolean;
+}) {
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<SurahFilter>("all");
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
-    const items = needle ? SURAH_METADATA.filter((surah) => [String(surah.number), surah.nameArabic, surah.nameEnglish, surah.meaningEnglish].some((value) => value.toLocaleLowerCase().includes(needle))) : SURAH_METADATA;
-    return preview ? items.slice(0, 6) : items;
-  }, [preview, query]);
+    return SURAH_METADATA.filter((surah) => {
+      const matchesQuery = !needle || [String(surah.number), surah.nameArabic, surah.nameEnglish, surah.meaningEnglish].some((value) => value.toLocaleLowerCase().includes(needle));
+      const matchesFilter =
+        filter === "all" ||
+        (filter === "meccan" && surah.revelationType === "Meccan") ||
+        (filter === "medinan" && surah.revelationType === "Medinan") ||
+        (filter === "short" && surah.ayahCount <= 10);
+      return matchesQuery && matchesFilter;
+    });
+  }, [filter, query]);
 
-  return <div>
-    <label className="sr-only" htmlFor={preview ? "home-surah-search" : "surah-search"}>Search by Surah number, Arabic name, English name, or meaning</label>
-    <input id={preview ? "home-surah-search" : "surah-search"} type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by name, meaning, or number…" className="input focus-ring" />
-    <p className="mt-4 text-sm text-muted" aria-live="polite">{query ? `${filtered.length}${preview ? "+" : ""} matching Surahs` : preview ? "A preview of the Qur’an index" : "114 Surahs"}</p><ul className="mt-4 grid gap-3">{filtered.map((surah) => <li key={surah.number}>
+  const filters: { value: SurahFilter; label: string }[] = [{ value: "all", label: "All" }, { value: "meccan", label: "Meccan" }, { value: "medinan", label: "Medinan" }, { value: "short", label: "Short" }];
+
+  return <div className="surah-explorer">
+    <div className="surah-search-field">
+      <AppIcon name="search" />
+      <label className="sr-only" htmlFor={searchId}>Search Surahs</label>
+      <input id={searchId} type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Surahs" className="input focus-ring" />
+    </div>
+    {showFilters && <div className="surah-filter-chips" aria-label="Filter Surahs">{filters.map((item) => <button key={item.value} type="button" aria-pressed={filter === item.value} onClick={() => setFilter(item.value)} className="focus-ring">{item.label}</button>)}</div>}
+    <p className="surah-result-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? "Surah" : "Surahs"}</p>
+    <ul className="surah-results">{filtered.map((surah) => <li key={surah.number}>
       <Link href={`/surahs/${surah.number}`} className="surah-row focus-ring">
         <span className="number-badge">{surah.number}</span><span className="min-w-0"><strong className="block text-ink">{surah.nameEnglish}</strong><span className="text-sm text-muted">{surah.meaningEnglish}</span></span>
         <span className="ml-auto hidden text-sm text-muted sm:block">{surah.revelationType === "Meccan" ? "Makkan" : "Madinan"} · {surah.ayahCount} ayahs</span><span dir="rtl" lang="ar" className="arabic ml-3 text-xl text-green">{surah.nameArabic.replace(/^سُورَةُ\s*/, "")}</span>

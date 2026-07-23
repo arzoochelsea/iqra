@@ -1,13 +1,18 @@
-import Link from "next/link";
+"use client";
+
+import { usePathname } from "next/navigation";
+import { AppLogo } from "@/components/app-logo";
+import { DesktopNavigation } from "@/components/app-navigation";
 import { InstallIqra } from "@/components/pwa/install-iqra";
 
-const links = [{ href: "/", label: "Home" }, { href: "/surahs", label: "Surahs" }, { href: "/my-journey", label: "My Journey" }, { href: "/about", label: "About" }];
-
 export function SiteHeader() {
-  return <header className="border-b border-ink/10 bg-cream/95">
-    <div className="shell flex h-18 items-center justify-between">
-      <Link href="/" className="font-serif text-2xl font-semibold tracking-[.18em] text-green focus-ring">IQRA</Link>
-      <div className="header-actions"><nav aria-label="Primary navigation"><ul className="flex gap-1 sm:gap-4">{links.map((link) => <li key={link.href}><Link className="nav-link focus-ring" href={link.href}>{link.label}</Link></li>)}</ul></nav><InstallIqra /></div>
+  const pathname = usePathname();
+  if (pathname === "/") return null;
+
+  return <header className="site-header">
+    <div className="shell site-header-inner">
+      <AppLogo compact />
+      <div className="header-actions"><DesktopNavigation /><InstallIqra /></div>
     </div>
   </header>;
 }

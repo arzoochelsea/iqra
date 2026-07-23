@@ -1,8 +1,8 @@
-const CACHE_VERSION = "iqra-v1";
+const CACHE_VERSION = "iqra-v2";
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const DATA_CACHE = `${CACHE_VERSION}-data`;
-const PRECACHE_URLS = ["/", "/offline", "/surahs", "/my-journey", "/about", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-maskable-512.png"];
+const PRECACHE_URLS = ["/", "/offline", "/why-iqra", "/surahs", "/search", "/saved", "/about", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-maskable-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(PAGE_CACHE).then((cache) => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting()));

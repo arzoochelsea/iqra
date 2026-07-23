@@ -28,7 +28,7 @@
     {
       "name": "My Journey",
       "short_name": "Journey",
-      "url": "/my-journey",
+      "url": "/saved",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     }
   ]

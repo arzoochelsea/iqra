@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { JourneyProvider } from "@/components/journey/journey-provider";
 import { ServiceWorkerRegistration } from "@/components/pwa/service-worker-registration";
+import { MobileBottomNavigation } from "@/components/app-navigation";
 import "./globals.css";
 
 const sans = Manrope({ variable: "--font-sans", subsets: ["latin"] });
@@ -50,5 +51,5 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${arabic.variable}`}><body><JourneyProvider><ServiceWorkerRegistration /><a href="#main-content" className="skip-link">Skip to content</a><SiteHeader /><main id="main-content" className="flex-1">{children}</main><SiteFooter /></JourneyProvider></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${arabic.variable}`}><body><JourneyProvider><ServiceWorkerRegistration /><a href="#main-content" className="skip-link">Skip to content</a><SiteHeader /><main id="main-content" className="flex-1">{children}</main><SiteFooter /><MobileBottomNavigation /></JourneyProvider></body></html>;
 }
