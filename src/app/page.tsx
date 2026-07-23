@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AppIcon, type AppIconName } from "@/components/app-icon";
-import { AppLogo } from "@/components/app-logo";
 import { InstallIqra } from "@/components/pwa/install-iqra";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function Home() {
   return (
     <div className="app-home">
       <section className="app-home-hero" aria-labelledby="home-title">
-        <AppLogo />
         <p className="app-reflection">Begin with the word that began the revelation.</p>
         <div>
           <h1 id="home-title">Read. Reflect.<br />Understand.</h1>
