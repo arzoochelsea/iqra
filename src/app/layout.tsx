@@ -12,6 +12,7 @@ const serif = Source_Serif_4({ variable: "--font-serif", subsets: ["latin"] });
 const arabic = Noto_Naskh_Arabic({ variable: "--font-arabic", subsets: ["arabic"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://iqra-reading.arzoo989609.chatgpt.site"),
   title: { default: "IQRA — Where Every Journey Begins", template: "%s · IQRA" },
   description: "Read, listen to, and understand the Qur’an through clearly attributed sources.",
   applicationName: "IQRA",
@@ -23,10 +24,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" },
-      { url: "/icons/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/icons/iqra-icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icons/iqra-icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" }],
+    apple: [{ url: "/branding/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
   appleWebApp: { capable: true, statusBarStyle: "default", title: "IQRA" },
   openGraph: {
@@ -34,11 +35,13 @@ export const metadata: Metadata = {
     siteName: "IQRA",
     title: "IQRA — Where Every Journey Begins",
     description: "Read, listen to, and understand the Qur’an through clearly attributed sources.",
+    images: [{ url: "/branding/iqra-logo.png", width: 1254, height: 1254, alt: "IQRA — Read, Reflect, Understand" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "IQRA — Where Every Journey Begins",
     description: "Read, listen to, and understand the Qur’an through clearly attributed sources.",
+    images: ["/branding/iqra-logo.png"],
   },
 };
 
