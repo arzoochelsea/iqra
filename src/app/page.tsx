@@ -21,7 +21,6 @@ export default function Home() {
         <p className="app-reflection">Begin with the word that began the revelation.</p>
         <div>
           <h1 id="home-title">Read. Reflect.<br />Understand.</h1>
-          <p>Explore the Qur’an with meaning, context, and thoughtful study.</p>
         </div>
         <div className="app-home-actions">
           <Link href="/surahs/112" className="button-primary focus-ring">Begin Reading</Link>
