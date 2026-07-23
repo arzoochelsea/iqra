@@ -30,14 +30,15 @@ export default function Home() {
 
       <section id="why-iqra" className="home-why-iqra" aria-labelledby="home-why-title">
         <p className="home-why-label">The first divine call</p>
-        <h2 id="home-why-title">Allah began the revelation with one word: <strong>IQRA</strong></h2>
-        <p>In the stillness of the Cave of Hira, the first command revealed to Prophet Muhammad ﷺ was not to fear, wait, or remain silent. It was <strong>IQRA—Read.</strong></p>
-        <div className="home-verse-card">
-          <span aria-hidden="true">“</span>
-          <p className="home-verse-arabic arabic" lang="ar" dir="rtl">“ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ”</p>
-          <p>Read in the name of your Lord who created.</p>
+        <div className="home-verse-card home-verse-highlight">
+          <span className="home-verse-mark" aria-hidden="true">“</span>
+          <p className="home-verse-arabic arabic" lang="ar" dir="rtl">ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ</p>
+          <div className="home-verse-rule" aria-hidden="true" />
+          <p className="home-verse-translation">“Read in the name of your Lord who created.”</p>
           <small>Qur’an 96:1</small>
         </div>
+        <h2 id="home-why-title">Allah began the revelation with one word: <strong>IQRA</strong></h2>
+        <p>In the stillness of the Cave of Hira, the first command revealed to Prophet Muhammad ﷺ was not to fear, wait, or remain silent. It was <strong>IQRA—Read.</strong></p>
         <p>Allah chose reading as the beginning: a call for every heart to seek knowledge, understand His creation, recognise the Creator, and move from darkness towards light.</p>
         <p className="home-hira-closing">That first call still reaches us: read with sincerity, learn with humility, and grow closer to Allah.</p>
         <small className="home-hira-source">Based on Qur’an 96:1–5 and Sahih al-Bukhari 3.</small>
