@@ -35,6 +35,7 @@ export default function Home() {
         <p>In the stillness of the Cave of Hira, the first command revealed to Prophet Muhammad ﷺ was not to fear, wait, or remain silent. It was <strong>IQRA—Read.</strong></p>
         <div className="home-verse-card">
           <span aria-hidden="true">“</span>
+          <p className="home-verse-arabic arabic" lang="ar" dir="rtl">“ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ”</p>
           <p>Read in the name of your Lord who created.</p>
           <small>Qur’an 96:1</small>
         </div>
