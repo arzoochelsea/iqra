@@ -11,7 +11,7 @@
 > “Read in the name of your Lord who created.”  
 > — Qur’an 96:1
 
-A modern and carefully sourced Qur’an learning experience designed to help Muslims read, listen, understand, and reflect upon the Qur’an.
+A modern and carefully sourced Qur’an learning experience designed to help Everybody read, listen, understand, and reflect upon the Qur’an.
 
 [![Download IQRA](https://img.shields.io/badge/Download-IQRA-176B55?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arzoochelsea/iqra/archive/refs/heads/main.zip)
 [![View Repository](https://img.shields.io/badge/View-Repository-1B1B1B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arzoochelsea/iqra)
@@ -306,7 +306,7 @@ IQRA was created and developed by **Arzoo** with the aim of making Qur’an read
 
 ## اقْرَأْ
 
-### Built with care for the Muslim Ummah.
+### Built with care for the Human being
 
 If you find IQRA helpful, consider giving the repository a ⭐
 
