@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AppIcon, type AppIconName } from "@/components/app-icon";
 import { InstallIqra } from "@/components/pwa/install-iqra";
 
 export const metadata: Metadata = {
   title: { absolute: "IQRA | Read. Reflect. Understand." },
   description: "Explore the Qur’an with meaning, context, and thoughtful study.",
 };
-
-const actions: { href: string; title: string; copy: string; icon: AppIconName }[] = [
-  { href: "/surahs/112", title: "Continue Reading", copy: "Return to Al-Ikhlas", icon: "continue" },
-  { href: "/surahs", title: "Explore Surahs", copy: "Browse all 114 chapters", icon: "book" },
-  { href: "/search", title: "Search the Qur’an", copy: "Find a Surah", icon: "search" },
-  { href: "/saved", title: "Saved Ayahs", copy: "Open your learning lists", icon: "bookmark" },
-];
 
 export default function Home() {
   return (
@@ -31,11 +23,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="app-action-section" aria-labelledby="home-actions-title">
-        <h2 id="home-actions-title">What would you like to do?</h2>
-        <div className="app-action-grid">
-          {actions.map((action) => <Link key={action.href} href={action.href} className="app-action-card focus-ring"><span className="app-action-icon"><AppIcon name={action.icon} /></span><span><strong>{action.title}</strong><small>{action.copy}</small></span><span className="app-action-arrow" aria-hidden="true">→</span></Link>)}
+      <section className="home-why-iqra" aria-labelledby="home-why-title">
+        <p className="home-why-label">The first divine call</p>
+        <h2 id="home-why-title">It began with one word: <strong>IQRA</strong></h2>
+        <p>The first word Allah revealed was a call to read—to awaken the mind, seek knowledge, and draw nearer to the Creator.</p>
+        <div className="home-verse-card">
+          <span aria-hidden="true">“</span>
+          <p>Read in the name of your Lord who created.</p>
+          <small>Qur’an 96:1</small>
         </div>
+        <p>That same call reaches us today: read with curiosity, learn with humility, and reflect with sincerity.</p>
+        <Link href="/why-iqra" className="app-text-button focus-ring">Discover why IQRA matters <span aria-hidden="true">→</span></Link>
       </section>
     </div>
   );
