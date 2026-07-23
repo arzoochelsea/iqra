@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AppIcon, type AppIconName } from "@/components/app-icon";
 import { AppLogo } from "@/components/app-logo";
+import { InstallIqra } from "@/components/pwa/install-iqra";
 
 export const metadata: Metadata = {
   title: { absolute: "IQRA | Read. Reflect. Understand." },
@@ -28,6 +29,7 @@ export default function Home() {
         <div className="app-home-actions">
           <Link href="/surahs/112" className="button-primary focus-ring">Begin Reading</Link>
           <Link href="/why-iqra" className="app-text-button focus-ring">Why IQRA? <span aria-hidden="true">→</span></Link>
+          <InstallIqra />
         </div>
       </section>
 
