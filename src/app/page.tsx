@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { InstallIqra } from "@/components/pwa/install-iqra";
 
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="app-home">
+      <div className="sacred-backdrop sacred-backdrop-mecca" aria-hidden="true">
+        <Image src="/visuals/mecca-dawn.png" alt="" fill priority sizes="(max-width: 767px) 100vw, 56vw" />
+      </div>
+      <div className="sacred-backdrop sacred-backdrop-medina" aria-hidden="true">
+        <Image src="/visuals/medina-evening.png" alt="" fill sizes="(max-width: 767px) 100vw, 48vw" />
+      </div>
       <section className="app-home-hero" aria-labelledby="home-title">
         <p className="app-reflection">Begin with the word that began the revelation.</p>
         <div>
