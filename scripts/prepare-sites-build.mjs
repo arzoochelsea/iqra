@@ -1,4 +1,4 @@
-import { copyFile, mkdir } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 
 function run(command, args) {
@@ -12,6 +12,12 @@ function run(command, args) {
 }
 
 run("opennextjs-cloudflare", ["build"]);
+
+const handlerPath = ".open-next/server-functions/default/handler.mjs";
+const handler = await readFile(handlerPath, "utf8");
+const requireShim = "const require = (specifier) => process.getBuiltinModule(specifier.replace(/^node:/, \"\"));\n";
+await writeFile(handlerPath, `${requireShim}${handler}`);
+
 run("wrangler", ["deploy", "--dry-run", "--outdir", ".sites-bundle"]);
 
 await mkdir(".open-next", { recursive: true });
