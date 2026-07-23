@@ -1,10 +1,11 @@
-export type DuaCategory = "Knowledge" | "Family" | "Forgiveness" | "Everyday";
+export type DuaCategory = "Knowledge" | "Family" | "Forgiveness" | "Everyday" | "Guidance" | "Protection" | "Healing" | "Provision";
 
 export interface Dua {
   id: string;
   category: DuaCategory;
   title: string;
   arabic: string;
+  transliteration: string;
   translation: string;
   source: string;
   words: { arabic: string; meaning: string }[];
@@ -16,6 +17,7 @@ export const duas: Dua[] = [
     category: "Knowledge",
     title: "For beneficial knowledge",
     arabic: "رَبِّ زِدْنِي عِلْمًا",
+    transliteration: "Rabbi zidnī ‘ilmā.",
     translation: "My Lord, increase me in knowledge.",
     source: "Qur’an 20:114",
     words: [
@@ -29,6 +31,7 @@ export const duas: Dua[] = [
     category: "Family",
     title: "For one’s parents",
     arabic: "رَّبِّ ٱرْحَمْهُمَا كَمَا رَبَّيَانِى صَغِيرًا",
+    transliteration: "Rabbir-ḥamhumā kamā rabbayānī ṣaghīrā.",
     translation: "My Lord, have mercy upon them as they raised me when I was small.",
     source: "Qur’an 17:24",
     words: [
@@ -44,6 +47,7 @@ export const duas: Dua[] = [
     category: "Forgiveness",
     title: "When seeking Allah’s forgiveness",
     arabic: "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ ٱلْخَاسِرِينَ",
+    transliteration: "Rabbanā ẓalamnā anfusanā wa il-lam taghfir lanā wa tarḥamnā lanakūnanna minal-khāsirīn.",
     translation: "Our Lord, we have wronged ourselves. If You do not forgive us and have mercy upon us, we will surely be among the losers.",
     source: "Qur’an 7:23",
     words: [
@@ -65,6 +69,7 @@ export const duas: Dua[] = [
     category: "Everyday",
     title: "For goodness in both worlds",
     arabic: "رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا حَسَنَةً وَفِى ٱلْـَٔاخِرَةِ حَسَنَةً وَقِنَا عَذَابَ ٱلنَّارِ",
+    transliteration: "Rabbanā ātinā fid-dunyā ḥasanatan wa fil-ākhirati ḥasanatan wa qinā ‘adhāban-nār.",
     translation: "Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.",
     source: "Qur’an 2:201",
     words: [
@@ -79,6 +84,135 @@ export const duas: Dua[] = [
       { arabic: "وَقِنَا", meaning: "and protect us" },
       { arabic: "عَذَابَ", meaning: "from the punishment" },
       { arabic: "ٱلنَّارِ", meaning: "of the Fire" },
+    ],
+  },
+  {
+    id: "steadfast-hearts",
+    category: "Guidance",
+    title: "For a heart that remains guided",
+    arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ ٱلْوَهَّابُ",
+    transliteration: "Rabbanā lā tuzigh qulūbanā ba‘da idh hadaytanā wa hab lanā mil-ladunka raḥmah, innaka antal-Wahhāb.",
+    translation: "Our Lord, do not let our hearts deviate after You have guided us. Grant us mercy from Yourself. You are indeed the Giver.",
+    source: "Qur’an 3:8",
+    words: [
+      { arabic: "رَبَّنَا", meaning: "Our Lord" }, { arabic: "لَا تُزِغْ", meaning: "do not let deviate" },
+      { arabic: "قُلُوبَنَا", meaning: "our hearts" }, { arabic: "هَدَيْتَنَا", meaning: "You guided us" },
+      { arabic: "وَهَبْ لَنَا", meaning: "and grant us" }, { arabic: "رَحْمَةً", meaning: "mercy" },
+      { arabic: "ٱلْوَهَّابُ", meaning: "the Giver" },
+    ],
+  },
+  {
+    id: "family-comfort",
+    category: "Family",
+    title: "For a righteous and loving family",
+    arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّـٰتِنَا قُرَّةَ أَعْيُنٍ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    transliteration: "Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata a‘yunin waj‘alnā lil-muttaqīna imāmā.",
+    translation: "Our Lord, bless us with spouses and offspring who will be the joy of our hearts, and make us examples for the righteous.",
+    source: "Qur’an 25:74",
+    words: [
+      { arabic: "رَبَّنَا", meaning: "Our Lord" }, { arabic: "هَبْ لَنَا", meaning: "grant us" },
+      { arabic: "أَزْوَٰجِنَا", meaning: "our spouses" }, { arabic: "وَذُرِّيَّـٰتِنَا", meaning: "and our offspring" },
+      { arabic: "قُرَّةَ أَعْيُنٍ", meaning: "comfort of our eyes" }, { arabic: "وَٱجْعَلْنَا", meaning: "and make us" },
+      { arabic: "إِمَامًا", meaning: "an example" },
+    ],
+  },
+  {
+    id: "prayer-family",
+    category: "Family",
+    title: "For steadfastness in prayer",
+    arabic: "رَبِّ ٱجْعَلْنِى مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِى رَبَّنَا وَتَقَبَّلْ دُعَآءِ",
+    transliteration: "Rabbij‘alnī muqīmaṣ-ṣalāti wa min dhurriyyatī, rabbanā wa taqabbal du‘ā’.",
+    translation: "My Lord, make me and those believers of my descendants steadfast in prayer. Our Lord, accept my supplication.",
+    source: "Qur’an 14:40",
+    words: [
+      { arabic: "رَبِّ", meaning: "My Lord" }, { arabic: "ٱجْعَلْنِى", meaning: "make me" },
+      { arabic: "مُقِيمَ ٱلصَّلَوٰةِ", meaning: "steadfast in prayer" }, { arabic: "ذُرِّيَّتِى", meaning: "my descendants" },
+      { arabic: "وَتَقَبَّلْ", meaning: "and accept" }, { arabic: "دُعَآءِ", meaning: "my supplication" },
+    ],
+  },
+  {
+    id: "distress-yunus",
+    category: "Protection",
+    title: "When overwhelmed or in distress",
+    arabic: "لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+    transliteration: "Lā ilāha illā anta subḥānaka innī kuntu minaẓ-ẓālimīn.",
+    translation: "There is no god worthy of worship except You. Glory be to You! I have certainly been among the wrongdoers.",
+    source: "Qur’an 21:87",
+    words: [
+      { arabic: "لَّآ إِلَـٰهَ", meaning: "there is no god" }, { arabic: "إِلَّآ أَنتَ", meaning: "except You" },
+      { arabic: "سُبْحَـٰنَكَ", meaning: "glory be to You" }, { arabic: "إِنِّى", meaning: "indeed I" },
+      { arabic: "ٱلظَّـٰلِمِينَ", meaning: "the wrongdoers" },
+    ],
+  },
+  {
+    id: "evil-whispers",
+    category: "Protection",
+    title: "From evil whispers",
+    arabic: "رَّبِّ أَعُوذُ بِكَ مِنْ هَمَزَٰتِ ٱلشَّيَـٰطِينِ وَأَعُوذُ بِكَ رَبِّ أَن يَحْضُرُونِ",
+    transliteration: "Rabbi a‘ūdhu bika min hamazātish-shayāṭīn, wa a‘ūdhu bika rabbi an yaḥḍurūn.",
+    translation: "My Lord, I seek refuge in You from the temptations of the devils. And I seek refuge in You, my Lord, that they even come near me.",
+    source: "Qur’an 23:97–98",
+    words: [
+      { arabic: "رَّبِّ", meaning: "My Lord" }, { arabic: "أَعُوذُ بِكَ", meaning: "I seek refuge in You" },
+      { arabic: "هَمَزَٰتِ", meaning: "from the temptations" }, { arabic: "ٱلشَّيَـٰطِينِ", meaning: "of the devils" },
+      { arabic: "يَحْضُرُونِ", meaning: "they come near me" },
+    ],
+  },
+  {
+    id: "healing-ayyub",
+    category: "Healing",
+    title: "When touched by illness or hardship",
+    arabic: "أَنِّى مَسَّنِىَ ٱلضُّرُّ وَأَنتَ أَرْحَمُ ٱلرَّٰحِمِينَ",
+    transliteration: "Annī massaniyaḍ-ḍurru wa anta arḥamur-rāḥimīn.",
+    translation: "Indeed, adversity has touched me, and You are the Most Merciful of the merciful.",
+    source: "Qur’an 21:83",
+    words: [
+      { arabic: "أَنِّى", meaning: "indeed I" }, { arabic: "مَسَّنِىَ", meaning: "has touched me" },
+      { arabic: "ٱلضُّرُّ", meaning: "adversity" }, { arabic: "وَأَنتَ", meaning: "and You are" },
+      { arabic: "أَرْحَمُ ٱلرَّٰحِمِينَ", meaning: "the Most Merciful" },
+    ],
+  },
+  {
+    id: "provision-musa",
+    category: "Provision",
+    title: "When in need of Allah’s provision",
+    arabic: "رَبِّ إِنِّى لِمَآ أَنزَلْتَ إِلَىَّ مِنْ خَيْرٍ فَقِيرٌ",
+    transliteration: "Rabbi innī limā anzalta ilayya min khayrin faqīr.",
+    translation: "My Lord, I am truly in desperate need of whatever good You may send down to me.",
+    source: "Qur’an 28:24",
+    words: [
+      { arabic: "رَبِّ", meaning: "My Lord" }, { arabic: "إِنِّى", meaning: "indeed I" },
+      { arabic: "أَنزَلْتَ", meaning: "You send down" }, { arabic: "مِنْ خَيْرٍ", meaning: "of good" },
+      { arabic: "فَقِيرٌ", meaning: "in need" },
+    ],
+  },
+  {
+    id: "mercy-guidance",
+    category: "Guidance",
+    title: "For mercy and right guidance",
+    arabic: "رَبَّنَآ ءَاتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
+    transliteration: "Rabbanā ātinā mil-ladunka raḥmatan wa hayyi’ lanā min amrinā rashadā.",
+    translation: "Our Lord, grant us mercy from Yourself and guide us rightly through our ordeal.",
+    source: "Qur’an 18:10",
+    words: [
+      { arabic: "رَبَّنَآ", meaning: "Our Lord" }, { arabic: "ءَاتِنَا", meaning: "grant us" },
+      { arabic: "رَحْمَةً", meaning: "mercy" }, { arabic: "وَهَيِّئْ لَنَا", meaning: "and make ready for us" },
+      { arabic: "رَشَدًا", meaning: "right guidance" },
+    ],
+  },
+  {
+    id: "forgive-believers",
+    category: "Forgiveness",
+    title: "For ourselves and fellow believers",
+    arabic: "رَبَّنَا ٱغْفِرْ لَنَا وَلِإِخْوَٰنِنَا ٱلَّذِينَ سَبَقُونَا بِٱلْإِيمَـٰنِ وَلَا تَجْعَلْ فِى قُلُوبِنَا غِلًّا لِّلَّذِينَ ءَامَنُوا",
+    transliteration: "Rabbanaghfir lanā wa li-ikhwāninal-ladhīna sabaqūnā bil-īmān, wa lā taj‘al fī qulūbinā ghillal lilladhīna āmanū.",
+    translation: "Our Lord, forgive us and our fellow believers who preceded us in faith, and do not place bitterness in our hearts towards those who believe.",
+    source: "Qur’an 59:10",
+    words: [
+      { arabic: "رَبَّنَا", meaning: "Our Lord" }, { arabic: "ٱغْفِرْ لَنَا", meaning: "forgive us" },
+      { arabic: "وَلِإِخْوَٰنِنَا", meaning: "and our fellow believers" }, { arabic: "بِٱلْإِيمَـٰنِ", meaning: "in faith" },
+      { arabic: "وَلَا تَجْعَلْ", meaning: "and do not place" }, { arabic: "فِى قُلُوبِنَا", meaning: "in our hearts" },
+      { arabic: "غِلًّا", meaning: "bitterness" },
     ],
   },
 ];

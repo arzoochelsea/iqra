@@ -4,14 +4,14 @@ import { useMemo, useState } from "react";
 import { AppIcon } from "@/components/app-icon";
 import { duas, type DuaCategory } from "@/data/duas";
 
-const categories: ("All" | DuaCategory)[] = ["All", "Knowledge", "Family", "Forgiveness", "Everyday"];
+const categories: ("All" | DuaCategory)[] = ["All", "Knowledge", "Guidance", "Family", "Forgiveness", "Protection", "Healing", "Provision", "Everyday"];
 
 export function DuaLibrary() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
-    return duas.filter((dua) => (category === "All" || dua.category === category) && (!needle || `${dua.title} ${dua.translation} ${dua.source} ${dua.category}`.toLocaleLowerCase().includes(needle)));
+    return duas.filter((dua) => (category === "All" || dua.category === category) && (!needle || `${dua.title} ${dua.arabic} ${dua.transliteration} ${dua.translation} ${dua.source} ${dua.category}`.toLocaleLowerCase().includes(needle)));
   }, [category, query]);
 
   return (
@@ -29,6 +29,7 @@ export function DuaLibrary() {
           <article className="dua-card" key={dua.id}>
             <header><span>{dua.category}</span><h2>{dua.title}</h2></header>
             <p className="dua-arabic arabic" lang="ar" dir="rtl">{dua.arabic}</p>
+            <p className="dua-transliteration">{dua.transliteration}</p>
             <p className="dua-translation">{dua.translation}</p>
             <p className="dua-source">{dua.source}</p>
             <details>

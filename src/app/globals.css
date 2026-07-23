@@ -78,6 +78,7 @@ button,input { font:inherit; }
 .dua-card header span { color:var(--gold); font-size:.63rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .dua-card h2 { margin-top:.2rem; color:var(--green); font:600 clamp(1.15rem,3vw,1.4rem) var(--font-serif); }
 .dua-arabic { margin-block:1.2rem .75rem; color:var(--green); font-size:clamp(1.65rem,5vw,2.25rem); line-height:1.8; text-align:right; }
+.dua-transliteration { margin-bottom:.5rem; color:var(--gold); font-size:.8rem; font-style:italic; font-weight:650; line-height:1.6; }
 .dua-translation { max-width:46rem; color:var(--ink); font-size:.9rem; line-height:1.7; }
 .dua-source { margin-top:.4rem; color:var(--muted); font-size:.68rem; }
 .dua-card details { margin-top:1rem; border-top:1px solid color-mix(in srgb,var(--ink) 8%,transparent); padding-top:.8rem; }
