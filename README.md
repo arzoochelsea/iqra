@@ -13,11 +13,11 @@
 
 A modern and carefully sourced Qur’an learning experience designed to help Everybody read, listen, understand, and reflect upon the Qur’an.
 
-[![Download IQRA](https://img.shields.io/badge/Download-IQRA-176B55?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arzoochelsea/iqra/archive/refs/heads/main.zip)
+[![Install IQRA](https://img.shields.io/badge/Install-IQRA-176B55?style=for-the-badge&logo=pwa&logoColor=white)](https://iqra-reading.arzoo989609.chatgpt.site/)
 [![View Repository](https://img.shields.io/badge/View-Repository-1B1B1B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arzoochelsea/iqra)
 [![Star Repository](https://img.shields.io/github/stars/arzoochelsea/iqra?style=for-the-badge&logo=github&label=Star)](https://github.com/arzoochelsea/iqra/stargazers)
 
-**No GitHub account is required to download IQRA.**
+**No app store or GitHub account is required to install IQRA.**
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
@@ -43,19 +43,44 @@ IQRA is inspired by that invitation to seek knowledge, reflect deeply, and draw 
 
 ---
 
-## Download IQRA
+## Install IQRA
 
 <div align="center">
 
-### Download the complete project
+### Install the app
 
-[![Download ZIP](https://img.shields.io/badge/⬇_DOWNLOAD_IQRA-ZIP-176B55?style=for-the-badge)](https://github.com/arzoochelsea/iqra/archive/refs/heads/main.zip)
+[![Install on Android](https://img.shields.io/badge/Install_on-Android-176B55?style=for-the-badge&logo=android&logoColor=white)](https://iqra-reading.arzoo989609.chatgpt.site/)
+[![Install on iPhone or iPad](https://img.shields.io/badge/Install_on-iPhone_%2F_iPad-1B1B1B?style=for-the-badge&logo=apple&logoColor=white)](https://iqra-reading.arzoo989609.chatgpt.site/)
 
-**No sign-in or GitHub account is required.**
+**Public app link:** [iqra-reading.arzoo989609.chatgpt.site](https://iqra-reading.arzoo989609.chatgpt.site/)
 
 </div>
 
-You can also clone the repository:
+IQRA is a Progressive Web App and works on Android, iPhone, iPad, and supported desktop browsers.
+
+### Android
+
+1. Open the public app link in Chrome or Edge.
+2. Tap **Install IQRA** when the install button appears.
+3. If it does not appear, open the browser menu and choose **Install app** or **Add to Home screen**.
+
+### iPhone and iPad
+
+1. Open the public app link in **Safari**.
+2. Tap the **Share** button.
+3. Choose **Add to Home Screen**.
+4. Turn on **Open as Web App**, then tap **Add**.
+
+> [!NOTE]
+> Apple does not show the same automatic PWA installation prompt used by Android browsers. On iPhone and iPad, installation is completed through Safari’s Share menu.
+
+### Desktop
+
+Open the public app link in Chrome or Edge and select the install icon in the address bar, or use **Install IQRA** when it appears.
+
+### Download the source code
+
+[Download the complete IQRA project as a ZIP](https://github.com/arzoochelsea/iqra/archive/refs/heads/main.zip), or clone the repository:
 
 ```bash
 git clone https://github.com/arzoochelsea/iqra.git
