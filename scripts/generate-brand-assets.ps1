@@ -9,7 +9,10 @@ $brandingDirectory = Join-Path $PSScriptRoot "..\public\branding"
 $iconsDirectory = Join-Path $PSScriptRoot "..\public\icons"
 New-Item -ItemType Directory -Force -Path $brandingDirectory, $iconsDirectory | Out-Null
 
-Copy-Item -LiteralPath $FullLogo -Destination (Join-Path $brandingDirectory "iqra-logo.png") -Force
+$fullLogoDestination = Join-Path $brandingDirectory "iqra-logo.png"
+if ((Resolve-Path -LiteralPath $FullLogo).Path -ne (Resolve-Path -LiteralPath $fullLogoDestination -ErrorAction SilentlyContinue).Path) {
+  Copy-Item -LiteralPath $FullLogo -Destination $fullLogoDestination -Force
+}
 Copy-Item -LiteralPath $IconMaster -Destination (Join-Path $brandingDirectory "iqra-icon-master.png") -Force
 
 function Export-SquarePng {
