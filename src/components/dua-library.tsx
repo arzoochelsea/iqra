@@ -17,6 +17,9 @@ const categoryCards: { name: DuaCategory; icon: string; tone: string; subtitle: 
   { name: "Healing", icon: "✚", tone: "aqua", subtitle: "Illness and hardship" },
   { name: "Provision", icon: "◇", tone: "sun", subtitle: "Rizq and goodness" },
   { name: "Knowledge", icon: "📖", tone: "blue", subtitle: "Learning and understanding" },
+  { name: "Sleep", icon: "☾", tone: "lilac", subtitle: "Rest and night remembrance" },
+  { name: "Mosque", icon: "♢", tone: "mint", subtitle: "Entering and worship" },
+  { name: "Weather", icon: "☂", tone: "sky", subtitle: "Rain and changing skies" },
 ];
 
 export function DuaLibrary() {
