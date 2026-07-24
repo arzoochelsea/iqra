@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       <figure className="focused-hero-visual">
-        <Image src="/visuals/mecca-dawn.png" alt="The Kaaba in Makkah in peaceful morning light" fill priority sizes="(max-width: 767px) 100vw, 48vw" />
+        <Image src="/visuals/kaaba-majestic-sunrise.png" alt="The Kaaba in Makkah beneath a radiant golden sunrise" fill priority sizes="(max-width: 767px) 100vw, 48vw" />
         <figcaption><span aria-hidden="true">✦</span> Begin with remembrance</figcaption>
       </figure>
     </div>
