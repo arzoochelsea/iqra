@@ -1,4 +1,4 @@
-export type DuaCategory = "Knowledge" | "Family" | "Forgiveness" | "Everyday" | "Guidance" | "Protection" | "Healing" | "Provision";
+export type DuaCategory = "Daily" | "Knowledge" | "Guidance" | "Marriage & Family" | "Forgiveness" | "Protection" | "Fear & Anxiety" | "Healing" | "Provision" | "Travel" | "Gratitude";
 
 export interface Dua {
   id: string;
@@ -8,6 +8,7 @@ export interface Dua {
   transliteration: string;
   translation: string;
   source: string;
+  sourceUrl?: string;
   words: { arabic: string; meaning: string }[];
 }
 
@@ -28,7 +29,7 @@ export const duas: Dua[] = [
   },
   {
     id: "mercy-parents",
-    category: "Family",
+    category: "Marriage & Family",
     title: "For one’s parents",
     arabic: "رَّبِّ ٱرْحَمْهُمَا كَمَا رَبَّيَانِى صَغِيرًا",
     transliteration: "Rabbir-ḥamhumā kamā rabbayānī ṣaghīrā.",
@@ -66,7 +67,7 @@ export const duas: Dua[] = [
   },
   {
     id: "good-in-both-worlds",
-    category: "Everyday",
+    category: "Daily",
     title: "For goodness in both worlds",
     arabic: "رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا حَسَنَةً وَفِى ٱلْـَٔاخِرَةِ حَسَنَةً وَقِنَا عَذَابَ ٱلنَّارِ",
     transliteration: "Rabbanā ātinā fid-dunyā ḥasanatan wa fil-ākhirati ḥasanatan wa qinā ‘adhāban-nār.",
@@ -103,7 +104,7 @@ export const duas: Dua[] = [
   },
   {
     id: "family-comfort",
-    category: "Family",
+    category: "Marriage & Family",
     title: "For a righteous and loving family",
     arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّـٰتِنَا قُرَّةَ أَعْيُنٍ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
     transliteration: "Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata a‘yunin waj‘alnā lil-muttaqīna imāmā.",
@@ -118,7 +119,7 @@ export const duas: Dua[] = [
   },
   {
     id: "prayer-family",
-    category: "Family",
+    category: "Marriage & Family",
     title: "For steadfastness in prayer",
     arabic: "رَبِّ ٱجْعَلْنِى مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِى رَبَّنَا وَتَقَبَّلْ دُعَآءِ",
     transliteration: "Rabbij‘alnī muqīmaṣ-ṣalāti wa min dhurriyyatī, rabbanā wa taqabbal du‘ā’.",
@@ -213,6 +214,133 @@ export const duas: Dua[] = [
       { arabic: "وَلِإِخْوَٰنِنَا", meaning: "and our fellow believers" }, { arabic: "بِٱلْإِيمَـٰنِ", meaning: "in faith" },
       { arabic: "وَلَا تَجْعَلْ", meaning: "and do not place" }, { arabic: "فِى قُلُوبِنَا", meaning: "in our hearts" },
       { arabic: "غِلًّا", meaning: "bitterness" },
+    ],
+  },
+  {
+    id: "travel",
+    category: "Travel",
+    title: "When beginning a journey",
+    arabic: "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنَ الْعَمَلِ مَا تَرْضَى",
+    transliteration: "Subḥānal-ladhī sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn, wa innā ilā rabbinā lamunqalibūn. Allāhumma innā nas’aluka fī safarinā hādhal-birra wat-taqwā, wa minal-‘amali mā tarḍā.",
+    translation: "Glory is to Him Who has subjected this to us, though we could not have controlled it, and surely to our Lord we will return. O Allah, we ask You for righteousness and mindfulness in this journey, and for deeds that please You.",
+    source: "Sahih Muslim 1342",
+    sourceUrl: "https://sunnah.com/muslim/15/479",
+    words: [
+      { arabic: "سُبْحَانَ الَّذِي", meaning: "Glory is to Him Who" },
+      { arabic: "سَخَّرَ لَنَا", meaning: "subjected for us" },
+      { arabic: "سَفَرِنَا", meaning: "our journey" },
+      { arabic: "الْبِرَّ وَالتَّقْوَى", meaning: "righteousness and mindfulness" },
+      { arabic: "مَا تَرْضَى", meaning: "what pleases You" },
+    ],
+  },
+  {
+    id: "fear-of-people",
+    category: "Fear & Anxiety",
+    title: "When afraid of people",
+    arabic: "اللَّهُمَّ اكْفِنِيهِمْ بِمَا شِئْتَ",
+    transliteration: "Allāhummakfinīhim bimā shi’ta.",
+    translation: "O Allah, suffice me against them however You wish.",
+    source: "Hisn al-Muslim 132; Muslim",
+    sourceUrl: "https://sunnah.com/hisn/132",
+    words: [
+      { arabic: "اللَّهُمَّ", meaning: "O Allah" },
+      { arabic: "اكْفِنِيهِمْ", meaning: "suffice me against them" },
+      { arabic: "بِمَا شِئْتَ", meaning: "however You wish" },
+    ],
+  },
+  {
+    id: "anxiety-sorrow",
+    category: "Fear & Anxiety",
+    title: "For anxiety, grief, and heaviness",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+    transliteration: "Allāhumma innī a‘ūdhu bika minal-hammi wal-ḥazan, wal-‘ajzi wal-kasal, wal-bukhli wal-jubn, wa ḍala‘id-dayni wa ghalabatir-rijāl.",
+    translation: "O Allah, I seek refuge in You from anxiety and grief, weakness and laziness, miserliness and cowardice, the burden of debt, and being overpowered by others.",
+    source: "Sunan an-Nasa’i 5453 (Sahih)",
+    sourceUrl: "https://sunnah.com/nasai/50/26",
+    words: [
+      { arabic: "أَعُوذُ بِكَ", meaning: "I seek refuge in You" },
+      { arabic: "الْهَمِّ وَالْحَزَنِ", meaning: "anxiety and grief" },
+      { arabic: "الْعَجْزِ وَالْكَسَلِ", meaning: "weakness and laziness" },
+      { arabic: "ضَلَعِ الدَّيْنِ", meaning: "the burden of debt" },
+      { arabic: "غَلَبَةِ الرِّجَالِ", meaning: "being overpowered by others" },
+    ],
+  },
+  {
+    id: "gratitude-joy",
+    category: "Gratitude",
+    title: "For gratitude and righteous action",
+    arabic: "رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَى وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ",
+    transliteration: "Rabbi awzi‘nī an ashkura ni‘matakal-latī an‘amta ‘alayya wa ‘alā wālidayya wa an a‘mala ṣāliḥan tarḍāh.",
+    translation: "My Lord, inspire me to be thankful for Your favour which You have blessed me and my parents with, and to do good deeds that please You.",
+    source: "Qur’an 27:19",
+    words: [
+      { arabic: "رَبِّ", meaning: "My Lord" },
+      { arabic: "أَوْزِعْنِي", meaning: "inspire me" },
+      { arabic: "أَنْ أَشْكُرَ", meaning: "to be thankful" },
+      { arabic: "نِعْمَتَكَ", meaning: "for Your favour" },
+      { arabic: "صَالِحًا تَرْضَاهُ", meaning: "good that pleases You" },
+    ],
+  },
+  {
+    id: "newlywed-blessing",
+    category: "Marriage & Family",
+    title: "A blessing for newlyweds",
+    arabic: "بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+    transliteration: "Bārakallāhu laka wa bāraka ‘alayka wa jama‘a baynakumā fī khayr.",
+    translation: "May Allah bless you, send blessings upon you, and bring you together in goodness.",
+    source: "Jami‘ at-Tirmidhi 1091 (Sahih)",
+    sourceUrl: "https://sunnah.com/tirmidhi:1091",
+    words: [
+      { arabic: "بَارَكَ اللَّهُ لَكَ", meaning: "May Allah bless you" },
+      { arabic: "وَبَارَكَ عَلَيْكَ", meaning: "and send blessings upon you" },
+      { arabic: "وَجَمَعَ بَيْنَكُمَا", meaning: "and bring you both together" },
+      { arabic: "فِي خَيْرٍ", meaning: "in goodness" },
+    ],
+  },
+  {
+    id: "entering-home",
+    category: "Daily",
+    title: "When entering the home",
+    arabic: "بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا",
+    transliteration: "Bismillāhi walajnā, wa bismillāhi kharajnā, wa ‘alā rabbinā tawakkalnā.",
+    translation: "In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we depend.",
+    source: "Hisn al-Muslim 18; Abu Dawud",
+    sourceUrl: "https://sunnah.com/hisn/18",
+    words: [
+      { arabic: "بِسْمِ اللَّهِ", meaning: "In the name of Allah" },
+      { arabic: "وَلَجْنَا", meaning: "we enter" },
+      { arabic: "خَرَجْنَا", meaning: "we leave" },
+      { arabic: "تَوَكَّلْنَا", meaning: "we depend" },
+    ],
+  },
+  {
+    id: "waking-up",
+    category: "Daily",
+    title: "Upon waking",
+    arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+    transliteration: "Alḥamdu lillāhil-ladhī aḥyānā ba‘da mā amātanā wa ilayhin-nushūr.",
+    translation: "Praise is to Allah Who gives us life after He caused us to die, and to Him is the return.",
+    source: "Sahih al-Bukhari; Hisn al-Muslim 1",
+    sourceUrl: "https://sunnah.com/hisn/1",
+    words: [
+      { arabic: "الْحَمْدُ لِلَّهِ", meaning: "Praise is to Allah" },
+      { arabic: "أَحْيَانَا", meaning: "Who gives us life" },
+      { arabic: "بَعْدَ مَا أَمَاتَنَا", meaning: "after causing us to die" },
+      { arabic: "وَإِلَيْهِ النُّشُورُ", meaning: "and to Him is the return" },
+    ],
+  },
+  {
+    id: "before-eating",
+    category: "Daily",
+    title: "Before eating",
+    arabic: "بِسْمِ اللَّهِ",
+    transliteration: "Bismillāh.",
+    translation: "In the name of Allah.",
+    source: "Hisn al-Muslim 178; Abu Dawud and at-Tirmidhi",
+    sourceUrl: "https://sunnah.com/hisn/178",
+    words: [
+      { arabic: "بِسْمِ", meaning: "In the name" },
+      { arabic: "اللَّهِ", meaning: "of Allah" },
     ],
   },
 ];

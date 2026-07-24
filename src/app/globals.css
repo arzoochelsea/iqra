@@ -79,21 +79,45 @@ button,input { font:inherit; }
 .home-verse-highlight .home-verse-translation { max-width:28rem; padding-right:0; font-size:clamp(1.15rem,3.5vw,1.45rem); line-height:1.4; text-wrap:balance; }
 .home-verse-highlight small { margin-top:.7rem; color:var(--gold); font-size:.72rem; font-weight:800; letter-spacing:.04em; }
 .dua-library { min-width:0; }
+.duas-screen { max-width:52rem; }
+.dua-visual { position:relative; isolation:isolate; overflow:hidden; min-height:clamp(9.5rem,28vw,13rem); margin-bottom:1rem; border:1px solid color-mix(in srgb,var(--gold) 24%,transparent); border-radius:1.25rem; background:#fff9ed; }
+.dua-visual img { z-index:-1; object-fit:cover; object-position:center; opacity:.92; }
+.dua-visual::after { position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,rgba(248,244,233,.97) 0%,rgba(248,244,233,.78) 36%,transparent 68%); content:""; }
+.dua-visual>div { display:grid; width:min(58%,22rem); min-height:inherit; align-content:center; padding:clamp(1rem,4vw,1.75rem); }
+.dua-visual h2 { margin-top:.2rem; color:var(--green); font:600 clamp(1.75rem,5vw,2.5rem)/1 var(--font-serif); }
+.dua-visual>div>p:last-child { margin-top:.45rem; color:var(--muted); font-size:.72rem; line-height:1.5; }
+.dua-view-tabs { display:grid; grid-template-columns:repeat(2,1fr); gap:.25rem; margin-bottom:1rem; border-radius:999px; background:color-mix(in srgb,var(--green) 7%,transparent); padding:.25rem; }
+.dua-view-tabs button { min-height:2.75rem; cursor:pointer; border-radius:999px; color:var(--muted); font-size:.75rem; font-weight:800; }
+.dua-view-tabs button[aria-pressed="true"] { background:#fffdf7; color:var(--green); box-shadow:0 3px 12px rgb(21 63 53/.09); }
+.dua-category-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.dua-category-card { position:relative; display:grid; min-width:0; min-height:8.25rem; cursor:pointer; grid-template-columns:minmax(0,1fr) auto; align-content:end; gap:.3rem .5rem; overflow:hidden; border:1px solid rgba(21,63,53,.07); border-radius:1.15rem; padding:1rem; color:var(--green); text-align:left; box-shadow:0 8px 22px rgb(21 63 53/.045); transition:transform .18s ease,box-shadow .18s ease; }
+.dua-category-card:hover { transform:translateY(-2px); box-shadow:0 13px 28px rgb(21 63 53/.09); }
+.dua-category-card>span:nth-child(2) { display:grid; min-width:0; }.dua-category-card strong { font:650 clamp(.9rem,3vw,1.05rem)/1.15 var(--font-serif); }
+.dua-category-card small { margin-top:.25rem; color:color-mix(in srgb,var(--green) 72%,transparent); font-size:.6rem; line-height:1.35; }
+.dua-category-card>b { align-self:end; border-radius:999px; background:rgba(255,255,255,.55); padding:.18rem .42rem; font-size:.58rem; }
+.dua-category-icon { position:absolute; top:.35rem; right:.7rem; color:color-mix(in srgb,var(--green) 68%,transparent); font:600 2.65rem/1 var(--font-serif); transform:rotate(-5deg); }
+.dua-tone-mint{background:linear-gradient(145deg,#d9f2e7,#edf8ed)}.dua-tone-sky{background:linear-gradient(145deg,#d9edfa,#edf8fb)}.dua-tone-rose{background:linear-gradient(145deg,#f8ddd8,#fff0e9)}.dua-tone-gold{background:linear-gradient(145deg,#f5e4b9,#fff3d6)}.dua-tone-peach{background:linear-gradient(145deg,#f8d9c9,#fff0dc)}.dua-tone-lilac{background:linear-gradient(145deg,#e7e0f8,#f4edfb)}.dua-tone-sage{background:linear-gradient(145deg,#dcebd9,#eff5e6)}.dua-tone-sand{background:linear-gradient(145deg,#eee3cc,#faf3e4)}.dua-tone-aqua{background:linear-gradient(145deg,#d5eeee,#ebf8f3)}.dua-tone-sun{background:linear-gradient(145deg,#f8e6a9,#fff4ce)}.dua-tone-blue{background:linear-gradient(145deg,#dbe5f5,#edf3fa)}
+.dua-collection-heading { display:flex; align-items:center; gap:.8rem; margin-bottom:1rem; }
+.dua-collection-heading h2 { margin-top:.15rem; color:var(--green); font:600 clamp(1.6rem,5vw,2.1rem)/1 var(--font-serif); }
+.dua-category-back { display:grid; width:2.75rem; height:2.75rem; flex:none; cursor:pointer; place-items:center; border:1px solid color-mix(in srgb,var(--green) 16%,transparent); border-radius:999px; color:var(--green); }
 .dua-count { margin-block:1rem .75rem; color:var(--muted); font-size:.72rem; font-weight:750; }
 .dua-list { display:grid; gap:1rem; }
 .dua-card { border:1px solid color-mix(in srgb,var(--gold) 22%,transparent); border-radius:1.15rem; background:#fffdf7; padding:clamp(1rem,3vw,1.5rem); box-shadow:0 10px 28px rgb(21 63 53/.045); }
 .dua-card header span { color:var(--gold); font-size:.63rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .dua-card h2 { margin-top:.2rem; color:var(--green); font:600 clamp(1.15rem,3vw,1.4rem) var(--font-serif); }
 .dua-arabic { margin-block:1.2rem .75rem; color:var(--green); font-size:clamp(1.65rem,5vw,2.25rem); line-height:1.8; text-align:right; }
-.dua-transliteration { margin-bottom:.5rem; color:var(--gold); font-size:.8rem; font-style:italic; font-weight:650; line-height:1.6; }
+.dua-language-block { display:grid; gap:.2rem; margin-top:.65rem; }.dua-language-block>span { color:var(--gold); font-size:.58rem; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+.dua-transliteration { color:var(--gold); font-size:.8rem; font-style:italic; font-weight:650; line-height:1.6; }
 .dua-translation { max-width:46rem; color:var(--ink); font-size:.9rem; line-height:1.7; }
-.dua-source { margin-top:.4rem; color:var(--muted); font-size:.68rem; }
+.dua-source { margin-top:.75rem; color:var(--muted); font-size:.68rem; }.dua-source a { color:var(--green); font-weight:750; text-decoration-thickness:1px; }
 .dua-card details { margin-top:1rem; border-top:1px solid color-mix(in srgb,var(--ink) 8%,transparent); padding-top:.8rem; }
 .dua-card summary { width:max-content; cursor:pointer; border-radius:.35rem; color:var(--green); font-size:.75rem; font-weight:800; }
 .dua-words { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.85rem; }
 .dua-words>div { display:grid; min-width:7rem; flex:1 1 8rem; gap:.25rem; border-radius:.75rem; background:var(--paper); padding:.65rem; text-align:center; }
 .dua-words strong { color:var(--green); font-size:1.2rem; line-height:1.5; }
 .dua-words span { color:var(--muted); font-size:.64rem; line-height:1.35; }
+@media (min-width:42rem) { .dua-category-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dua-category-card { min-height:9rem; } }
+@media (max-width:26rem) { .dua-visual>div { width:70%; }.dua-category-card { min-height:7.6rem; padding:.8rem; }.dua-category-icon { font-size:2.2rem; }.dua-category-card small { display:none; } }
 .app-screen { width:min(calc(100% - 2.5rem),68rem); margin-inline:auto; padding-block:clamp(1.75rem,5vw,3.5rem); }
 .app-screen-header { display:flex; align-items:flex-start; gap:.85rem; margin-bottom:clamp(1.5rem,4vw,2.25rem); }
 .app-screen-header h1 { color:var(--green); font:600 clamp(2rem,6vw,3.4rem)/1 var(--font-serif); }
