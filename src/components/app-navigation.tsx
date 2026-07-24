@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AppIcon, type AppIconName } from "@/components/app-icon";
+import { AboutDropdown } from "@/components/about-dropdown";
 
 const navigation: { href: string; label: string; icon: AppIconName; aliases?: string[] }[] = [
   { href: "/", label: "Home", icon: "home" },
-  { href: "/surahs", label: "Surahs", icon: "book" },
-  { href: "/duas", label: "Duas", icon: "search", aliases: ["/search"] },
-  { href: "/saved", label: "Saved", icon: "bookmark", aliases: ["/my-journey"] },
-  { href: "/about", label: "More", icon: "more", aliases: ["/privacy", "/methodology"] },
+  { href: "/surahs", label: "Surah", icon: "book", aliases: ["/search"] },
+  { href: "/duas", label: "Dua", icon: "search" },
+  { href: "/about", label: "About", icon: "more", aliases: ["/why-iqra"] },
 ];
 
 function isActive(pathname: string, href: string, aliases: string[] = []) {
@@ -22,9 +22,10 @@ export function DesktopNavigation() {
   return (
     <nav className="desktop-navigation" aria-label="Primary navigation">
       <ul>
-        {navigation.slice(0, 4).map((item) => <li key={item.href}>
+        {navigation.slice(0, 3).map((item) => <li key={item.href}>
           <Link href={item.href} className="nav-link focus-ring" aria-current={isActive(pathname, item.href, item.aliases) ? "page" : undefined}>{item.label}</Link>
         </li>)}
+        <li><AboutDropdown /></li>
       </ul>
     </nav>
   );
