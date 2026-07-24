@@ -101,6 +101,7 @@ button,input { font:inherit; }
 .focused-card-icon { display:grid; width:2.3rem; height:2.3rem; place-items:center; border-radius:999px; background:var(--paper); color:var(--gold); }.focused-card-icon svg { width:1.2rem; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
 .focused-info-card p { color:var(--gold); font-size:.54rem; font-weight:850; letter-spacing:.1em; }.focused-info-card h2 { margin-top:.15rem; color:var(--green); font:650 1.4rem/1 var(--font-serif); }
 .focused-info-card strong { display:block; margin-top:.15rem; color:var(--green); font-size:1rem; }.focused-info-card small { display:block; margin-top:.7rem; color:var(--muted); font-size:.58rem; line-height:1.45; }
+.prayer-retry { min-height:2.25rem; cursor:pointer; border-radius:.45rem; margin-top:.65rem; color:var(--green); font-size:.62rem; font-weight:800; text-decoration:underline; text-underline-offset:3px; }
 .focused-hero-visual { position:relative; isolation:isolate; overflow:hidden; min-height:clamp(28rem,48vw,38rem); border:1px solid color-mix(in srgb,var(--gold) 18%,transparent); border-radius:1.5rem; background:var(--paper); box-shadow:0 24px 60px rgb(21 63 53/.1); }
 .focused-hero-visual::after { position:absolute; inset:0; background:linear-gradient(180deg,transparent 60%,rgba(13,46,39,.45)); content:""; pointer-events:none; }
 .focused-hero-visual img { object-fit:cover; object-position:center; filter:saturate(.88) contrast(.96); }

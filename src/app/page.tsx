@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AboutDropdown } from "@/components/about-dropdown";
 import { ProfileLink } from "@/components/profile-link";
+import { PrayerDateCards } from "@/components/prayer-date-cards";
 
 export const metadata: Metadata = {
   title: { absolute: "IQRA | Read. Reflect. Understand." },
@@ -29,20 +30,7 @@ export default function Home() {
         <p className="focused-iqra-message">Allah chose the word <strong>IQRA</strong> to begin the revelation — so begin your journey by reading too.</p>
         <p className="focused-support">Read in the name of your Lord and reconnect with the Qur’an, one ayah at a time.</p>
 
-        <div className="focused-info-cards">
-          <article className="focused-info-card prayer-card">
-            <div className="focused-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 20h16M6 20v-7h12v7M9 13V9h6v4M12 9V4m-2 2 2-2 2 2" /></svg>
-            </div>
-            <div><p>NEXT PRAYER</p><h2>Asr</h2><strong>17:42</strong><small><span aria-hidden="true">◷</span> in 01:18:36</small></div>
-          </article>
-          <article className="focused-info-card date-card">
-            <div className="focused-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M5 6h14v14H5zM8 3v5M16 3v5M5 10h14" /><path d="M9 14h2v2H9zM14 14h1v2h-1z" /></svg>
-            </div>
-            <div><p>ISLAMIC DATE</p><h2>9 Safar</h2><strong>1448 AH</strong><small>4 August 2025, Monday</small></div>
-          </article>
-        </div>
+        <PrayerDateCards />
       </section>
 
       <figure className="focused-hero-visual">
