@@ -16,12 +16,9 @@ export function PrayerDateCards() {
   const [now, setNow] = useState<Date | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "permission" | "error">("loading");
   const [locationLabel, setLocationLabel] = useState("");
-  const [city, setCity] = useState("");
-  const [lookupError, setLookupError] = useState("");
 
   const loadForCoordinates = useCallback(async (location: SavedLocation) => {
     setStatus("loading");
-    setLookupError("");
     try {
       const timestamp = Math.floor(Date.now() / 1000);
       const response = await fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${location.latitude}&longitude=${location.longitude}&method=3`, { cache: "no-store" });
@@ -41,20 +38,6 @@ export function PrayerDateCards() {
       await loadForCoordinates({ latitude: coords.latitude, longitude: coords.longitude, label: "Current location" });
     }, () => setStatus("permission"), { enableHighAccuracy: false, timeout: 12_000, maximumAge: 300_000 });
   }, [loadForCoordinates]);
-
-  const findCity = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const query = city.trim();
-    if (!query) { setLookupError("Enter a city or town."); return; }
-    setStatus("loading");
-    setLookupError("");
-    try {
-      const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json`, { cache: "no-store" });
-      if (!response.ok) throw new Error("Location lookup failed.");
-      const location = parseGeocodingResult(await response.json() as unknown);
-      await loadForCoordinates(location);
-    } catch { setStatus("error"); setLookupError("That location could not be found. Try adding the country name."); }
-  }, [city, loadForCoordinates]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -76,19 +59,14 @@ export function PrayerDateCards() {
 
   return <div className="iqra-info-area"><section className="iqra-info-strip" aria-label="Today’s Islamic information">
     <article><InfoIcon name="calendar" /><div><p>Islamic Date</p>{day ? <><h2>{day.hijriDay} {day.hijriMonth} {day.hijriYear} AH</h2><small>{gregorianDate}</small></> : <><h2>Location needed</h2><small>{fallback}</small></>}</div></article>
-    <article><InfoIcon name="clock" /><div><p>Next Prayer</p>{nextPrayer && day ? <><h2>{nextPrayer.name}</h2><strong>{nextPrayer.time}</strong><small>{locationLabel || formatLocation(day.timeZone)} · in {formatCountdown(nextPrayer.seconds)}</small></> : <><h2>{status === "loading" ? "Locating…" : "Location needed"}</h2><small>{fallback}</small></>}</div></article>
+    <article><InfoIcon name="clock" /><div><p>Next Prayer</p>{nextPrayer && day ? <><h2>{nextPrayer.name}</h2><strong>{nextPrayer.time}</strong><small>{locationLabel || formatLocation(day.timeZone)} · in {formatCountdown(nextPrayer.seconds)}</small></> : <><h2>{status === "loading" ? "Locating…" : "Location needed"}</h2><small>{fallback}</small>{status !== "loading" && <button type="button" className="iqra-info-retry focus-ring" onClick={refresh}>Use my location</button>}</>}</div></article>
     <AllahNameSpotlight />
     <article className="iqra-inspiration"><InfoIcon name="dua" /><div><p>Daily Inspiration</p><h2 className="arabic" lang="ar" dir="rtl">إِنَّ مَعَ الْعُسْرِ يُسْرًا</h2><blockquote>Indeed, with hardship comes ease.</blockquote><cite>Surah Ash-Sharh (94:6)</cite></div></article>
-  </section><form className="iqra-location-form" onSubmit={findCity}>
-    <label htmlFor="iqra-city">Set your location</label>
-    <div><input id="iqra-city" value={city} onChange={(event) => setCity(event.target.value)} placeholder="City or town, e.g. Nuremberg" autoComplete="address-level2" /><button type="submit" className="focus-ring" disabled={status === "loading"}>Find city</button><button type="button" className="focus-ring" onClick={refresh} disabled={status === "loading"}>Use my location</button></div>
-    {lookupError && <small role="alert">{lookupError}</small>}
-  </form></div>;
+  </section></div>;
 }
 
 function InfoIcon({ name }: { name: "calendar" | "clock" | "dua" }) { return <span className="iqra-info-icon"><HomeIcon name={name} /></span>; }
 function formatLocation(timeZone: string) { const parts = timeZone.split("/"); return parts.reverse().map((part) => part.replaceAll("_", " ")).join(", "); }
-function parseGeocodingResult(payload: unknown): SavedLocation { if (!isRecord(payload) || !Array.isArray(payload.results) || !isRecord(payload.results[0])) throw new Error("Location not found."); const result = payload.results[0]; if (typeof result.latitude !== "number" || typeof result.longitude !== "number" || typeof result.name !== "string") throw new Error("Invalid location."); const country = typeof result.country === "string" ? `, ${result.country}` : ""; return { latitude: result.latitude, longitude: result.longitude, label: `${result.name}${country}` }; }
 function readSavedLocation(value: string | null): SavedLocation | null { if (!value) return null; try { const parsed: unknown = JSON.parse(value); if (!isRecord(parsed) || typeof parsed.latitude !== "number" || typeof parsed.longitude !== "number" || typeof parsed.label !== "string") return null; return { latitude: parsed.latitude, longitude: parsed.longitude, label: parsed.label }; } catch { return null; } }
 function parsePrayerDay(payload: unknown): PrayerDay {
   if (!isRecord(payload) || !isRecord(payload.data)) throw new Error("Invalid prayer response.");
