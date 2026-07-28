@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { HomeIcon } from "@/components/home-icon";
+import { AllahNameSpotlight } from "@/components/allah-name-spotlight";
 
 type PrayerName = "Fajr" | "Dhuhr" | "Asr" | "Maghrib" | "Isha";
 interface PrayerDay { timings: Record<PrayerName, string>; hijriDay: string; hijriMonth: string; hijriYear: string; timeZone: string; }
@@ -76,6 +77,7 @@ export function PrayerDateCards() {
   return <div className="iqra-info-area"><section className="iqra-info-strip" aria-label="Today’s Islamic information">
     <article><InfoIcon name="calendar" /><div><p>Islamic Date</p>{day ? <><h2>{day.hijriDay} {day.hijriMonth} {day.hijriYear} AH</h2><small>{gregorianDate}</small></> : <><h2>Location needed</h2><small>{fallback}</small></>}</div></article>
     <article><InfoIcon name="clock" /><div><p>Next Prayer</p>{nextPrayer && day ? <><h2>{nextPrayer.name}</h2><strong>{nextPrayer.time}</strong><small>{locationLabel || formatLocation(day.timeZone)} · in {formatCountdown(nextPrayer.seconds)}</small></> : <><h2>{status === "loading" ? "Locating…" : "Location needed"}</h2><small>{fallback}</small></>}</div></article>
+    <AllahNameSpotlight />
     <article className="iqra-inspiration"><InfoIcon name="dua" /><div><p>Daily Inspiration</p><h2 className="arabic" lang="ar" dir="rtl">إِنَّ مَعَ الْعُسْرِ يُسْرًا</h2><blockquote>Indeed, with hardship comes ease.</blockquote><cite>Surah Ash-Sharh (94:6)</cite></div></article>
   </section><form className="iqra-location-form" onSubmit={findCity}>
     <label htmlFor="iqra-city">Set your location</label>

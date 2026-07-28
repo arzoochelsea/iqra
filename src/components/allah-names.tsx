@@ -22,7 +22,7 @@ export function AllahNames() {
 
   useEffect(() => { const frame = window.requestAnimationFrame(loadNames); return () => window.cancelAnimationFrame(frame); }, [loadNames]);
 
-  return <section className="allah-names iqra-home-shell" aria-labelledby="allah-names-title">
+  return <section id="allah-names" className="allah-names iqra-home-shell" aria-labelledby="allah-names-title">
     <header>
       <p>Al-Asma al-Husna</p>
       <h2 id="allah-names-title">The 99 Names of Allah</h2>
