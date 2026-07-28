@@ -12,7 +12,7 @@ export function RevelationJourney({ metadata }: { metadata: SurahRevelationMetad
     setDetailsOpen(false);
     requestAnimationFrame(() => triggerRef.current?.querySelector<HTMLButtonElement>("button")?.focus());
   }
-  return <section className="revelation-journey" aria-labelledby="revelation-journey-title">
+  return <section className="revelation-journey" aria-label="Revelation details">
     <div className="shell" ref={triggerRef}><RevelationSummary metadata={metadata} onExplore={() => setDetailsOpen(true)} /></div>
     {detailsOpen && <RevelationDetailsDialog metadata={metadata} onClose={closeDetails} />}
   </section>;
