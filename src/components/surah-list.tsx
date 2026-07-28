@@ -25,7 +25,7 @@ export function SurahList({
         filter === "all" ||
         (filter === "meccan" && surah.revelationType === "Meccan") ||
         (filter === "medinan" && surah.revelationType === "Medinan") ||
-        (filter === "short" && surah.ayahCount <= 10);
+        (filter === "short" && surah.ayahCount <= 25);
       return matchesQuery && matchesFilter;
     });
   }, [filter, query]);
