@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HomeHeader } from "@/components/home-header";
 import { HomeIcon } from "@/components/home-icon";
 import { PrayerDateCards } from "@/components/prayer-date-cards";
+import { AllahNames } from "@/components/allah-names";
 
 export const metadata: Metadata = {
   title: { absolute: "IQRA | Begin with Allah’s Word" },
@@ -25,6 +26,8 @@ export default function Home() {
         <PrayerDateCards />
       </div>
     </div>
+
+    <AllahNames />
 
     <figure className="iqra-bottom-quote iqra-home-shell">
       <span aria-hidden="true">“</span>
