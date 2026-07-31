@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AppIcon, type AppIconName } from "@/components/app-icon";
-import { AboutDropdown } from "@/components/about-dropdown";
 
 const navigation: { href: string; label: string; icon: AppIconName; aliases?: string[] }[] = [
   { href: "/", label: "Home", icon: "home" },
@@ -19,13 +18,18 @@ function isActive(pathname: string, href: string, aliases: string[] = []) {
 
 export function DesktopNavigation() {
   const pathname = usePathname();
+  const handleAboutClick = () => {
+    if (pathname === "/about") window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <nav className="desktop-navigation" aria-label="Primary navigation">
       <ul>
         {navigation.slice(0, 3).map((item) => <li key={item.href}>
           <Link href={item.href} className="nav-link focus-ring" aria-current={isActive(pathname, item.href, item.aliases) ? "page" : undefined}>{item.label}</Link>
         </li>)}
-        <li><AboutDropdown /></li>
+        <li>
+          <Link href="/about" className="nav-link focus-ring" aria-current={isActive(pathname, "/about", ["/why-iqra"]) ? "page" : undefined} onClick={handleAboutClick}>About</Link>
+        </li>
       </ul>
     </nav>
   );
