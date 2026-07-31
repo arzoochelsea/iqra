@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return <div className="iqra-home">
     <div className="iqra-hero">
-      <div className="iqra-hero-scene" role="img" aria-label="A grand mosque illuminated beneath a crescent moon at night" />
       <HomeHeader />
       <div className="iqra-home-shell iqra-hero-content">
         <section className="iqra-hero-copy" aria-labelledby="iqra-home-title">
@@ -22,6 +21,7 @@ export default function Home() {
           <p className="iqra-hero-support">The Qur’an is more than words — it is a light for your heart and a guide for your life.</p>
           <Link href="/surahs" className="iqra-primary-cta focus-ring"><HomeIcon name="book" />Read the Qur’an</Link>
         </section>
+        <div className="iqra-hero-scene" role="img" aria-label="The Grand Mosque in Makkah in warm morning light" />
         <PrayerDateCards />
       </div>
     </div>
