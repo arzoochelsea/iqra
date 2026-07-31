@@ -43,7 +43,7 @@ export function SurahList({
     <ul className="surah-results">{filtered.map((surah) => <li key={surah.number}>
       <Link href={`/surahs/${surah.number}`} className="surah-row focus-ring">
         <span className="number-badge">{surah.number}</span><span className="min-w-0"><strong className="block text-ink">{surah.nameEnglish}</strong><span className="text-sm text-muted">{surah.meaningEnglish}</span></span>
-        <span className="ml-auto hidden text-sm text-muted sm:block">{surah.revelationType === "Meccan" ? "Makkan" : "Madinan"} · {surah.ayahCount} ayahs</span><span dir="rtl" lang="ar" className="arabic ml-3 text-xl text-green">{surah.nameArabic.replace(/^سُورَةُ\s*/, "")}</span>
+        <span className="surah-row-meta ml-auto text-sm text-muted"><span>{surah.revelationType === "Meccan" ? "Makkan" : "Madinan"}<span aria-hidden="true"> · </span></span>{surah.ayahCount} ayahs</span><span dir="rtl" lang="ar" className="arabic ml-3 text-xl text-green">{surah.nameArabic.replace(/^سُورَةُ\s*/, "")}</span>
       </Link>
     </li>)}</ul>{filtered.length === 0 && <p className="status">No Surahs match that search.</p>}
   </div>;
