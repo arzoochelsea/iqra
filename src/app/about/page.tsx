@@ -1,17 +1,88 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-export const metadata: Metadata = { title: "About", description: "About IQRA and its approach to sourced Qur’an learning." };
+export const metadata: Metadata = {
+  title: "About",
+  description: "About IQRA and its calm, respectful approach to Qur’an learning.",
+};
+
+const purposes = [
+  ["Read with clarity", "Access the Qur’an in a clean and distraction-free reading experience."],
+  ["Listen with attention", "Follow authentic recitation and engage more carefully with every ayah."],
+  ["Reflect with understanding", "Explore meaning and return regularly through structured personal learning."],
+];
+
+const principles = [
+  "Respect for the Qur’an",
+  "Clearly identified sources",
+  "Calm and accessible design",
+  "Continuous learning and improvement",
+];
 
 export default function AboutPage() {
-  return <div className="shell narrow section-pad"><header className="page-header"><p className="eyebrow">Where Every Journey Begins</p><h1 className="page-title">About IQRA</h1><p>IQRA is a minimal learning companion for reading, listening to, understanding, and reflecting on the Qur’an through clearly identified sources.</p><blockquote className="verse mt-8"><p>“Read in the name of your Lord who created.”</p><cite>— Qur’an 96:1</cite></blockquote></header><div className="prose-page">
-    <section><h2>Created by Arzoo</h2><p>IQRA was created by Arzoo to support thoughtful Qur’an reading, listening, understanding, and steady personal learning.</p></section>
-    <section id="why-iqra"><p className="eyebrow">The first divine call</p><h2>Why IQRA?</h2><p>“Iqra” means “read” or “recite.” It was the first word revealed to Prophet Muhammad ﷺ in the Cave of Hira: “Read in the name of your Lord who created.” (Qur’an 96:1)</p><p>The final revelation began with a call to knowledge—not only to read words, but to awaken the mind, reflect on creation, recognise the Creator, and move towards understanding.</p><p>That command gives this app its name and purpose. IQRA is designed as a calm place to read with curiosity, learn with humility, reflect with sincerity, and build a lasting relationship with Allah’s Word.</p><p><Link href="/why-iqra" className="text-link focus-ring">Read the full Why IQRA story →</Link></p></section>
-    <section id="our-mission"><h2>Our Mission</h2><p>To make respectful Qur’an reading, authentic recitation, clear meaning, and structured learning more accessible—one ayah at a time.</p></section>
-    <section><h2>Content principles</h2><p>Qur’anic Arabic is never generated or altered. Translation, transliteration, audio, tafsir, and editorial reflection are labelled distinctly. Uncertain revelation reports are not presented as settled fact, and differing scholarly views are acknowledged.</p></section>
-    <section id="sources-and-methodology"><h2>Sources and Content Methodology</h2><p>Compact metadata for all 114 Surahs is stored locally from Al Quran Cloud so browsing and search do not depend on a live request. Prepared Qur’anic Arabic uses its Uthmani edition, whose terms identify curation sources including Tanzil and Quran Academy and require the orthography and diacritics to remain unchanged.</p><p>Version 1 uses Saheeh International consistently for prepared English translation and Al Quran Cloud’s English Transliteration edition as a separate, clearly labelled layer. Translation rights remain with the rights-holder, so IQRA stores it only for carefully reviewed Surahs and always attributes it.</p><p><strong>Word-by-word dataset:</strong> islamic.app Word-by-word Quran, provided by islamic.app from Quran.com API v4 data. It documents coverage of all 114 Surahs, 6,236 ayahs, and 77,429 words; islamic.app attributes the Quran.com / Tarteel data under AGPL-3.0. IQRA requests only the ayah a reader opens, then validates the Surah number, ayah number, word count, Arabic, meaning, uniqueness, and ordered positions before display. It never splits Arabic or creates fallback meanings. Last reviewed: 21 July 2026.</p><p>Recitation is streamed—not stored—from the Islamic Network CDN, using Mishary Rashid Alafasy as the single Version 1 reciter. Provider terms permit educational streaming while recitation copyright remains with the reciter or rights-holder.</p><p>Tafsir summaries are short editorial explanations based on the cited scholarly source. Reflection prompts are IQRA editorial material, visibly separate from Qur’an, translation, and tafsir.</p></section>
-    <section><h2>Personal learning data</h2><p>My Qur’an Journey stores identifiers, list settings, and progress locally in your browser. IQRA does not upload the contents of personal Learning Lists.</p></section>
-    <section><h2>Learn with trusted guidance</h2><p>IQRA is a learning aid, not a religious authority. Qur’anic text, translations, historical claims, and tafsir content should be checked against trusted scholarly sources and discussed with qualified teachers when deeper guidance is needed.</p></section>
-    <section id="contact"><h2>Contact Us</h2><p>Questions, corrections, and thoughtful contributions are welcome through the IQRA project repository.</p><p><a className="text-link focus-ring" href="https://github.com/arzoochelsea/iqra/issues" target="_blank" rel="noreferrer">Contact IQRA on GitHub ↗</a></p></section>
-  </div><div className="about-actions"><Link href="/surahs/112" className="button-primary focus-ring">Study Al-Ikhlas</Link><Link href="/my-journey" className="button-secondary focus-ring">Open My Journey</Link></div></div>;
+  return (
+    <article className="about-page shell">
+      <header className="about-hero">
+        <div className="about-hero-copy">
+          <p className="eyebrow">Where every journey begins</p>
+          <h1>About IQRA</h1>
+          <p className="about-intro">IQRA is a calm Qur’an learning companion designed to help people read, listen, understand, and reflect with greater clarity.</p>
+        </div>
+        <blockquote className="about-quote">
+          <p>“Read in the name of your Lord who created.”</p>
+          <cite>Qur’an 96:1</cite>
+        </blockquote>
+      </header>
+
+      <section className="about-section about-story" aria-labelledby="why-iqra-title">
+        <div className="about-heading">
+          <p className="eyebrow">The first divine call</p>
+          <h2 id="why-iqra-title">Why IQRA?</h2>
+        </div>
+        <div className="about-copy">
+          <p>“Iqra” means “read” or “recite.” It was the first command revealed to Prophet Muhammad ﷺ and the opening call of the final revelation.</p>
+          <p>The command was greater than simply reading written words. It was an invitation to seek knowledge, reflect on creation, recognise the Creator, and approach understanding with humility.</p>
+          <p>IQRA takes its name from that beginning. The app is intended to provide a focused space where users can read the Qur’an, listen to recitation, explore meaning, and build a steady relationship with Allah’s Word.</p>
+        </div>
+      </section>
+
+      <section className="about-section" aria-labelledby="purpose-title">
+        <div className="about-heading">
+          <h2 id="purpose-title">Our Purpose</h2>
+        </div>
+        <div className="purpose-grid">
+          {purposes.map(([title, description], index) => (
+            <article className="purpose-card" key={title}>
+              <span aria-hidden="true">0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="about-section about-panel" aria-labelledby="created-title">
+        <div className="about-heading">
+          <h2 id="created-title">Created with purpose</h2>
+        </div>
+        <div className="about-copy">
+          <p>IQRA was created by Arzoo as a personal effort to make Qur’an reading, listening, understanding, and reflection feel more accessible and consistent.</p>
+          <p>The aim is not to replace qualified Islamic scholarship. IQRA is a learning companion that brings trusted material into a clear, respectful, and focused experience.</p>
+        </div>
+      </section>
+
+      <section className="about-section" aria-labelledby="principles-title">
+        <div className="about-heading">
+          <h2 id="principles-title">What guides IQRA</h2>
+        </div>
+        <ul className="principles-grid">
+          {principles.map((principle) => <li key={principle}>{principle}</li>)}
+        </ul>
+      </section>
+
+      <section className="about-source-note" aria-labelledby="sources-title">
+        <h2 id="sources-title">A note on sources</h2>
+        <p>IQRA aims to identify the sources used for Qur’anic text, translation, recitation, and supporting material wherever available. Users should consult qualified scholars for detailed religious rulings or interpretation.</p>
+      </section>
+    </article>
+  );
 }

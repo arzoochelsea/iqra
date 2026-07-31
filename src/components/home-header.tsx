@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
 import { ProfileLink } from "@/components/profile-link";
 
 const links = [
@@ -11,15 +12,16 @@ const links = [
 ];
 
 export function HomeHeader() {
+  const mobileMenu = useRef<HTMLDetailsElement>(null);
   return <header className="iqra-home-header iqra-home-shell">
     <Link href="/" className="iqra-home-logo focus-ring" aria-label="IQRA home"><span aria-hidden="true">۞</span>IQRA</Link>
     <nav className="iqra-desktop-nav" aria-label="Primary navigation">
       {links.map((link) => <Link key={link.href} href={link.href} className="focus-ring" aria-current={link.href === "/" ? "page" : undefined}>{link.label}</Link>)}
     </nav>
     <div className="iqra-header-actions">
-      <details className="iqra-mobile-menu">
+      <details className="iqra-mobile-menu" ref={mobileMenu}>
         <summary className="focus-ring" aria-label="Open navigation menu"><span /><span /><span /></summary>
-        <nav aria-label="Mobile navigation">{links.map((link) => <Link key={link.href} href={link.href} className="focus-ring" aria-current={link.href === "/" ? "page" : undefined}>{link.label}</Link>)}</nav>
+        <nav aria-label="Mobile navigation">{links.map((link) => <Link key={link.href} href={link.href} className="focus-ring" aria-current={link.href === "/" ? "page" : undefined} onClick={() => { if (mobileMenu.current) mobileMenu.current.open = false; }}>{link.label}</Link>)}</nav>
       </details>
       <ProfileLink />
     </div>
